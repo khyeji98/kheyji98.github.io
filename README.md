@@ -1,1 +1,1 @@
-This blog is built with some modifications based on [TeXt Theme](https://github.com/kitian616/jekyll-TeXt-theme)
+혜지가 개발공부하는 곳입니다.
