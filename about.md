@@ -5,7 +5,7 @@ key: page-about
 ---
 
 <div style="font" style="text-align: center;">
-    김형록,
+    김혜지,
    
     <br>
 
