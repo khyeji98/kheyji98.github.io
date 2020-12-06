@@ -45,9 +45,7 @@ for integer in food {
     print(integer)
 } // pizza chicken apple hamberger
 ```
-
-### 빈 배열 선언 유형
-
+빈 Dictionary를 선언하는 유형은 다양하다.
 ```swift
 var anyArray: Array<Any> = Array<Any>()
 var anyArray: Array<Any> = [Any]()
@@ -66,7 +64,8 @@ var people = ["john":25, "anne": 20,  "chris": 33]
 ```swift
 print(people["anne"]) // 20
 people.updateValue(27, forKey: "bob") // 추가
-people.updateValue(22, forKey: "anne") // 수정
+people.updateValue(22, forKey: "anne") // 수정   
+
 // 간단하게 추가 및 수정   
 people["hyeji"] = 23 // 추가
 people["bob"] = 40 // 수정
