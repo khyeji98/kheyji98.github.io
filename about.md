@@ -9,11 +9,11 @@ key: page-about
    
     <br>
 
-    자기 PR의 시대
+    나는
     
     <br>
     
-    블로그를 만들다
+    iOS 개발자다.
     
     <br>
     
