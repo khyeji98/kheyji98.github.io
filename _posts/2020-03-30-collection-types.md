@@ -65,7 +65,7 @@ var people = ["john":25, "anne": 20,  "chris": 33]
 print(people["anne"]) // 20
 people.updateValue(27, forKey: "bob") // 추가
 people.updateValue(22, forKey: "anne") // 수정   
-
+   
 // 간단하게 추가 및 수정   
 people["hyeji"] = 23 // 추가
 people["bob"] = 40 // 수정
