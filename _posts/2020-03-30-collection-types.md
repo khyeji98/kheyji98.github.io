@@ -67,7 +67,6 @@ var people = ["john":25, "anne": 20,  "chris": 33]
 print(people["anne"]) // 20
 people.updateValue(27, forKey: "bob") // 추가
 people.updateValue(22, forKey: "anne") // 수정
-
 // 간단하게 추가 및 수정
 people["hyeji"] = 23 // 추가
 people["bob"] = 40 // 수정
@@ -84,5 +83,4 @@ var anyDictionary = [String:Any]()
 ```
 
 #### Swift의 모든 타입(String, Int, Double, Bool)은 기본적으로 hashable하며, 이 모든 타입은 딕셔너리 키로 사용된다.
-
 > 나만의 타입을 딕셔너리에 넣어 사용하고 싶다면 Swift 표준 라이브러리로부터 Hashable 프로토콜을 만들어 따라야 한다.
