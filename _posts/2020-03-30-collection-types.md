@@ -37,16 +37,12 @@ print(food.isEmpty) // false
 ```swift
 food[1...2] = ["sushi", "noodle"]
     
-print(food[0...2])
-// ["pasta", "sushi", "noodle"]
+print(food[0...2]) // ["pasta", "sushi", "noodle"]
 
-print(food.sorted())
-// ["hamburger", "noodle", "pasta", "sushi"]
+print(food.sorted()) // ["hamburger", "noodle", "pasta", "sushi"]
 
-print(food.sorted(by: >))
-// ["sushi", "pasta", "noodle", "hamburger"]
+print(food.sorted(by: >)) // ["sushi", "pasta", "noodle", "hamburger"]
 
-// 배열 순회
 for integer in food {
     print(integer)
 } // pizza chicken apple hamberger
