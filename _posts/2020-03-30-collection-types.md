@@ -45,7 +45,7 @@ for integer in food {
     print(integer)
 } // pizza chicken apple hamberger
 ```
-빈 Dictionary를 선언하는 유형은 다양하다.
+- 빈 Dictionary를 선언하는 유형은 다양하다.
 ```swift
 var anyArray: Array<Any> = Array<Any>()
 var anyArray: Array<Any> = [Any]()
@@ -70,7 +70,7 @@ people.updateValue(22, forKey: "anne") // 수정
 people["hyeji"] = 23 // 추가
 people["bob"] = 40 // 수정
 ```
-빈 Dictionary를 선언하는 유형은 다양하다.
+- 빈 Dictionary를 선언하는 유형은 다양하다.
 ```swift
 var anyDictionary: Dictionary<String,Any> = [String: Any]()
 var anyDictionary: Dictionary <String,Any> = Dictionary<String, Any>()
