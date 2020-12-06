@@ -18,11 +18,11 @@
 ##############################
 text_skin: default # "default" (default), "dark", "forest", "ocean", "chocolate", "orange"
 highlight_theme: default # "default" (default), "tomorrow", "tomorrow-night", "tomorrow-night-eighties", "tomorrow-night-blue", "tomorrow-night-bright"
-url     : https://rokrokss.com # the base hostname & protocol for your site e.g. https://www.someone.com
+url     : https://khyeji98.github.io # the base hostname & protocol for your site e.g. https://www.someone.com
 baseurl : # does not include hostname
-title   : ROKROKSS
+title   : DEV.HYEJI
 description: > # this means to ignore newlines until "Language & timezone"
-  ROKROKSS
+  NOTE BY DEV.HYEJI
 
 
 ## => Language and Timezone
@@ -35,24 +35,24 @@ timezone: Asia/Seoul # see https://en.wikipedia.org/wiki/List_of_tz_database_tim
 ##############################
 author:
   type      : person # "person" (default), "organization"
-  name      : 김형록
-  url       : https://rokrokss.com
+  name      : 김혜지
+  url       : https://khyeji98.github.io
   avatar    : # path or url of avatar image
   bio       :
-  email     : q0115643@gmail.com
-  facebook  : 100004915320124 # "user_name" the last part of your profile url, e.g. https://www.facebook.com/user_name
-  twitter   : rokrokssss # "user_name" the last part of your profile url, e.g. https://twitter.com/user_name
+  email     : gpwl981207@naver.com
+  facebook  : # "user_name" the last part of your profile url, e.g. https://www.facebook.com/user_name
+  twitter   : # "user_name" the last part of your profile url, e.g. https://twitter.com/user_name
   googleplus: # "user_id"   the last part of your profile url, e.g. https://plus.google.com/u/0/user_id
   weibo     : # "user_id"   the last part of your profile url, e.g. https://www.weibo.com/user_id/profile?...
   douban    : # "user_name" the last part of your profile url, e.g. https://www.douban.com/people/user_name/
-  linkedin  : rokrokss # "user_name" the last part of your profile url, e.g. https://www.linkedin.com/in/user_name/
-  github    : rokrokss # "user_name" the last part of your profile url, e.g. https://github.com/user_name
+  linkedin  : # "user_name" the last part of your profile url, e.g. https://www.linkedin.com/in/user_name/
+  github    : kyeji98 # "user_name" the last part of your profile url, e.g. https://github.com/user_name
   npm       : # "user_name" the last part of your profile url, e.g. https://www.npmjs.com/~user_name
 
 
 ## => GitHub Repository (if the site is hosted by GitHub)
 ##############################
-repository: rokrokss/my_blog
+repository: khyeji98/khyeji98.github.io
 repository_tree: master
 
 
@@ -110,7 +110,7 @@ comments:
 
   ## Disqus
   disqus:
-    shortname: rokrokss # the Disqus shortname for the site
+    shortname: Hyeji # the Disqus shortname for the site
 
   ## Gitalk
   # please refer to https://github.com/gitalk/gitalk for more info.
@@ -130,20 +130,20 @@ pageview:
 
   ## Leancloud
   leancloud:
-    app_id    : gg2EhhsosMcQOBEApofBaScO-gzGzoHsz # LeanCloud App id
-    app_key   : H1s5eqBlwLcHWuma9D8lFajn # LeanCloud App key
-    app_class : rokrok # LeanCloud App class
+    app_id    : # LeanCloud App id
+    app_key   : # LeanCloud App key
+    app_class : # LeanCloud App class
 
 
 ## => Analytics
 ##############################
 analytics:
-  provider: google # false (default), "google", "custom"
+  provider: # false (default), "google", "custom"
 
   ## Google Analytics
   google:
-    tracking_id : UA-111579778-1 # Google Analytics id for the site
-    anonymize_ip: false # Anonymize IP tracking for Analytics
+    tracking_id : # Google Analytics id for the site
+    anonymize_ip: # Anonymize IP tracking for Analytics
 
 
 ## => Build
