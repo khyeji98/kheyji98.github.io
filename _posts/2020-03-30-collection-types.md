@@ -38,7 +38,7 @@ print(food.isEmpty) // false
 - 이 외에도 수많은 메서드나 방법을 통해 배열을 다룰 수 있다.
 ```swift
 food[1...2] = ["sushi", "noodle"]
-    
+
 print(food[0...2]) // ["pasta", "sushi", "noodle"]
 
 print(food.sorted()) // ["hamburger", "noodle", "pasta", "sushi"]
@@ -57,7 +57,9 @@ var anyArray: Array<Any> = [Any]()
 var anyArray = [Any]() // Array로 자동 인식
 var anyArray: [Any] = []
 ```
+
 ***
+
 ## Dictionary
 - Dictionary는 `Dictionary<keyType, valueType>`로 작성하거나, 간단하게 `[keyType:valueType]`로 작성할 수 있다.   
 - keyType은 딕셔너리의 key로 사용될 타입이고, valueType은 딕셔너리의 value로 사용될 타입이다.
