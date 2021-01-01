@@ -55,8 +55,8 @@ var anyArray: [Any] = []
 ```
 
 ## Dictionary
-- Dictionary는 `Dictionary<keyType, valueType>`로 작성하거나, 간단하게 `[keyType:valueType]`로 작성할 수 있다.   
-- keyType은 딕셔너리의 key로 사용될 타입이고, valueType은 딕셔너리의 value로 사용될 타입이다.
+Dictionary는 `Dictionary<keyType, valueType>`로 작성하거나, 간단하게 `[keyType:valueType]`로 작성할 수 있다.   
+keyType은 딕셔너리의 key로 사용될 타입이고, valueType은 딕셔너리의 value로 사용될 타입이다.
 ```
 var people: Dictionary<String, Int> = ["john":25, "anne": 20,  "chris": 33]
 var people = ["john":25, "anne": 20,  "chris": 33]
