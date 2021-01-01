@@ -21,7 +21,7 @@ Array는 순서가 정해져 있으나, Dictionary는 순서가 정해져 있지
 ## Array
 
 Array는 `Array<Type>`으로 작성하거나, 간단하게 `[Type]`으로 작성해 타입 추론할 수 있다.
-```HTML
+```
 var food: Array<String> = ["pizza", "chicken", "apple"]
    
 var food = ["pizza", "chicken", "apple"]
