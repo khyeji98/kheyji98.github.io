@@ -21,15 +21,21 @@ Array는 순서가 정해져 있으나, Dictionary는 순서가 정해져 있지
 ## Array
 
 Array는 `Array<Type>`으로 작성하거나, 간단하게 `[Type]`으로 작성해 타입 추론할 수 있다.
-```
+```Markdown
 var food: Array<String> = ["pizza", "chicken", "apple"]
+   
 var food = ["pizza", "chicken", "apple"]
 ```
 배열에 차례대로 원소를 추가할 수 있으며, 특정 index에 원소를 추가하거나 제거할 수 있다.
-```swift
-food.append("hamburger") // 배열 끝에 추가
-food.insert("pasta", atIndex: 1) // 특정 index에 추가
-food.remove(at: 0) // 특정 원소 제거
+```
+// 배열 끝에 추가
+food.append("hamburger")
+   
+// 특정 index에 추가
+food.insert("pasta", atIndex: 1)
+   
+// 특정 원소 제거
+food.remove(at: 0)
 ```
 배열 내 원소개수를 파악하거나 배열이 비어있는지 확인할 수 있다.
 ```
@@ -39,12 +45,21 @@ print(food.isEmpty) // false
 이 외에도 수많은 메서드나 방법을 통해 배열을 다룰 수 있다.
 ```
 food[1...2] = ["sushi", "noodle"]
-print(food[0...2]) // ["pasta", "sushi", "noodle"]
-print(food.sorted()) // ["hamburger", "noodle", "pasta", "sushi"]
-print(food.sorted(by: >)) // ["sushi", "pasta", "noodle", "hamburger"]
+   
+print(food[0...2])
+// ["pasta", "sushi", "noodle"]
+   
+print(food.sorted())
+// ["hamburger", "noodle", "pasta", "sushi"]
+   
+print(food.sorted(by: >))
+// ["sushi", "pasta", "noodle", "hamburger"]
+   
+// 배열 순회
 for integer in food {
     print(integer)
-} // pizza chicken apple hamberger
+}
+// pizza chicken apple hamberger
 ```
 빈 Array를 선언하는 방법은 다양하다.
 ```
@@ -59,6 +74,7 @@ Dictionary는 `Dictionary<keyType, valueType>`로 작성하거나, 간단하게 
 keyType은 딕셔너리의 key로 사용될 타입이고, valueType은 딕셔너리의 value로 사용될 타입이다.
 ```
 var people: Dictionary<String, Int> = ["john":25, "anne": 20,  "chris": 33]
+   
 var people = ["john":25, "anne": 20,  "chris": 33]
 ```
 특정 key로 value값을 찾을 수 있으며, 특정 key로 바로 원소를 추가하거나 value값을 수정할 수 있다.
