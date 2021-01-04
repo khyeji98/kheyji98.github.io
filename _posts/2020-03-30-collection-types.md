@@ -1,6 +1,6 @@
 ---
 comments: true
-title: Collection Types
+title: [swift]Collection Types
 key: 202003301
 modify_date: 2020-03-30
 picture_frame: shadow
