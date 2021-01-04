@@ -1,6 +1,6 @@
 ---
 comments: true
-title: Swift) Collection Types
+title: [Swift ) Collection Type]
 key: 202003301
 modify_date: 2020-03-30
 picture_frame: shadow
@@ -10,14 +10,14 @@ tags:
 
 # Collection Types
 
-Swift Collection Types엔 Array, Set, Dictionary가 있는데 주로 Array, Dictionary를 사용한다.   
-Array는 순서가 정해져 있으나, Dictionary는 순서가 정해져 있지 않아 key로 값을 찾는다.
-
+Swift Collection Types엔 Array, Set, Dictionary가 있다.   
+Array는 순서가 정해져 있으나, Set과 Dictionary는 순서가 정해져 있지 않다.
+  
 > 개발할 때 Swift 컬렉션 사용은 타입을 정확하게 명시하거나 타입 추론을 통해 타입이 명확하다.   
 > 타입을 명확하게 명시할 경우, 맞지 않은 타입을 빠르게 찾을 수 있다.
-
+ 
 ***
-
+  
 ## Array
 
 Array는 `Array<Type>`으로 작성하거나, 간단하게 `[Type]`으로 작성해 타입 추론할 수 있다.
