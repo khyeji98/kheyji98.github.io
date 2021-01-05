@@ -180,7 +180,7 @@ Swift에서는 클래스, 구조체, 열거형 정의의 여부를 선택할 수
  
 ### 인스턴스 메소드(Instance Method)
  
-인스턴스 메소드는 **특정 클래스/구조체/열거형**에 속한 메소드로, 구현은 당연히 **특정 클래스/구조체/열거형** 내에서 작성해야 한다.
+인스턴스 메소드는 **특정 타입**의 인스턴스에서 호출되는 메소드로, 구현은 당연히 **특정 클래스/구조체/열거형** 내에서 작성해야 한다.
 ```
 class SomeClass {
  
@@ -225,7 +225,81 @@ func someInstanceMethod() {
         self.some += 1
     }
 ```
-굳이 self라는 키워드를 
-
-### 타입 메소드
+굳이 self라는 키워드를 쓰지 않아도 인스턴스 프로퍼티를 참조한다고 가정한다.   
  
+하지만 인스턴스 프로퍼티와 메소드의 파라미터가 이름이 동일하다면 이러한 경우엔 self 키워드를 무조건 사용해야 한다.
+```
+class SomeClass {
+    
+    var some = 0
+    
+    func otherInstanceMethod(some: Int) {
+        self.some += some
+    }
+}
+```
+두 some을 구분하기 위해서는 self 키워드를 통해 인스턴스 프로퍼티임을 구분지어야 한다.   
+물론 이런 경우를 애초에 만들지 않게 방지하는 것이 가장 좋은 방법이다.
+ 
+만약 self를 사용하지 않는 다면 인스턴스 메소드 내에선 인스턴스 프로퍼티와 파라미터 중 **파라미터**가 우선 순위에 든다.   
+ 
+지금까지의 예시는 클래스 타입이었기 때문에 인스턴스 메소드 내에서 프로퍼티를 수정할 수 있었으나,   
+**기본적으로** 값타입인 구조체와 열거형은 해당 인스턴스 메소드 내에서 프로퍼티를 수정할 수 없다.   
+ 
+기본적으로는 수정할 수 없었지만 특정 메소드 내에서라도 구조체나 열거형의 프로퍼티를 수정해야 한다면 해당 메소드의 동작을 변경하도록 선택할 수 있다.
+```
+struct SomeStruct {
+    var some = 0.0, other = 0.0
+    
+    mutating func someInstanceMethod(a: Double, b: Double) {
+        some += a
+        other += b
+    }
+}
+ 
+var another = SomeStruct(some: 1.0, other: 1.0)
+another.someInstanceMethod(a: 2.0, b: 1.0)
+```
+`mutating` 키워드를 인스턴스 메소드 맨앞에 붙여주면 그 인스턴스 메소드만은 구조체나 열거형의 프로퍼티를 수정할 수 있게 된다.
+그리고 mutating 메소드는 암시적 self 프로퍼티에 완전히 새로운 인스턴스를 할당할 수 있다.
+```
+struct SomeStruct {
+    var some = 0.0, other = 0.0
+    
+    mutating func someInstanceMethod(a: Double, b: Double) {
+        self = SomeStruct(some: some + a, other: other + b)
+    }
+}
+ 
+var another = SomeStruct(some: 1.0, other: 2.0)
+another.someInstanceMethod(a: 2.0, b: 2.0) // a: 3.0, b: 4.0
+```
+여기서 `self`는 SomeStruct 자체를 의미하기 때문에 새로운 인스턴스가 되는 것이다.
+ 
+> 그리고 `var another`가 아니라 `let another`였다면 인스턴스 프로퍼티들이 `let`으로 선언되는 것과 같은 효과가 발생한다.
+ 
+### 타입 메소드(Type Method)
+ 
+타입 메소드는 **타입 자체**에서 호출되는 메소드라고 할 수 있는데, 메소드 맨 앞에 `static` 키워드를 붙이면 타입 메소드라고 한다.   
+클래스의 경우, `class` 키워드를 사용해 서브 클래스가 슈퍼 클래스의 메소드를 재정의(override)할 수 있다.   
+ 
+타입 메소드가 인스턴스 메소드와 어떻게 다른지는 코드로 보면 한번에 알 수 있다.
+```
+class SomeClass {
+ 
+    static func otherTypeMethod(){
+        //code
+    }
+ 
+    class func someTypeMethod() {
+        // code
+    }
+}
+ 
+SomeClass.someTypeMethod()
+ 
+SomeClass.otherTypeMethod()
+```
+인스턴스화를 
+ 
+참고: [https://zeddios.tistory.com/258](https://zeddios.tistory.com/258)
