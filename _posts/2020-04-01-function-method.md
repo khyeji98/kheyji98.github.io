@@ -170,5 +170,62 @@ let sortedNum = num.sorted() { (a, b) in
 > 클로저는 많이 사용되고 중요한 파트이기 때문에 공부한 기록을 따로 포스팅할 예정이다.
  
 # Method
+ 
+앞서 말한 것처럼 메소드는 클래스, 구조체, 열거형 타입 내에서 정의된 함수를 말한다.   
+Swift에서 구조체와 열거형을 정의할 수 있다는 것은 Swift VS C와 Objective-C로 구분지을 수 있는 중요한 차이점이라고 한다.   
+Objective-C에서 메소드를 정의할 수 있는 타입은 클래스가 유일하기 때문이다.   
+Swift에서는 클래스, 구조체, 열거형 정의의 여부를 선택할 수 있으며, 사용자가 만든 타입에 대한 메소드를 유연하게 정의할 수 있다.   
+ 
+메소드에서도 종류가 나뉘는데, **인스턴스 메소드**와 **타입 메소드**가 있다.
+ 
+### 인스턴스 메소드(Instance Method)
+ 
+인스턴스 메소드는 **특정 클래스/구조체/열거형**에 속한 메소드로, 구현은 당연히 **특정 클래스/구조체/열거형** 내에서 작성해야 한다.
+```
+class SomeClass {
+ 
+    var some = 0
+ 
+    func someInstanceMethod() {
+        some += 1
+    }
+ 
+    func otherInstanceMethod(_ other: Int) {
+        some += other
+    }
+ 
+    func anotherInstanceMethod() {
+        some = 0
+    }
+}
+```
+특정 클래스 내에서 3가지 인스턴스 메소드를 구현한 것이고, some이라는 변수 저장 프로퍼티를 선언한 것이다.
+ 
+인스턴스 메소드를 호출하기 위해서는 인스턴스 메소드가 구현된 특정 타입을 변수에 **인스턴스화** 해야한다.
+```
+let instance = SomeClass() // 인스턴스화
+ 
+instacne.someInstanceMethod() // some = 1
+ 
+instance.otherInstanceMethod(1) // some = 2
+ 
+instance.anotherInstanceMethod() // some = 0
+```
+인스턴스화없이는 **절대** 인스턴스 메소드를 호출할 수 없다.
+ 
+#### self 속성
+ 
+타입 내에 선언된 모든 프로퍼티에는 "**self**"라는 암시적 프로퍼티, 즉 자기자신을 뜻하는데 인스턴스 자신과 정확하게 동일하다.   
+한마디로 이 속성을 통해 인스턴스 메소드 내에서 인스턴스 자체를 참조할 수 있다.   
+    
+ 
+사실 열마디 설명보다 코드를 직접보고 이해하는게 더 빠르다.
+```
+func someInstanceMethod() {
+        self.some += 1
+    }
+```
+굳이 self라는 키워드를 
 
+### 타입 메소드
  
