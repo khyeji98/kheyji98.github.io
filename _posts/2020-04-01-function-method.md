@@ -317,6 +317,9 @@ class SubClass: SomeClass {
 타입 메소드를 재정의하는 것이므로 `class` 키워드에서 `override static` 키워드로 변경하여 붙여준다.   
  
  
-타입 메소드 
+타입 메소드 내에서도 `self` 키워드를 사용할 수 있지만, 타입 메소드의 경우 인스턴스가 아니라 **타입 자체**를 의미한다.
  
-참고: [https://zeddios.tistory.com/258](https://zeddios.tistory.com/258)
+ 
+#### Reference
+ 
+[https://zeddios.tistory.com/258](https://zeddios.tistory.com/258)
