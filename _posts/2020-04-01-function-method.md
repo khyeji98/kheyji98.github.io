@@ -283,6 +283,8 @@ another.someInstanceMethod(a: 2.0, b: 2.0) // a: 3.0, b: 4.0
 타입 메소드는 **타입 자체**에서 호출되는 메소드라고 할 수 있는데, 메소드 맨 앞에 `static` 키워드를 붙이면 타입 메소드라고 한다.   
 클래스의 경우, `class` 키워드를 사용해 서브 클래스가 슈퍼 클래스의 메소드를 재정의(override)할 수 있다.   
  
+> 물론 class-타입 메소드는 구조체나 열거형에서 정의할 수 없다.
+ 
 타입 메소드가 인스턴스 메소드와 어떻게 다른지는 코드로 보면 한번에 알 수 있다.
 ```
 class SomeClass {
@@ -300,6 +302,21 @@ SomeClass.someTypeMethod()
  
 SomeClass.otherTypeMethod()
 ```
-인스턴스화를 
+인스턴스화를 통해 메소드 호출이 가능했던 인스턴스 메소드와는 다르게,   
+바로 타입에 체이닝을 통해 메소드 호출이 가능하다.
+ 
+ 
+class-타입 메소드는 SomeClass를 채택한다면 재정의할 수 있다.
+```
+class SubClass: SomeClass {
+    override static func otherTypeMethod() {
+        // code
+    }
+}
+```
+타입 메소드를 재정의하는 것이므로 `class` 키워드에서 `override static` 키워드로 변경하여 붙여준다.   
+ 
+ 
+타입 메소드 
  
 참고: [https://zeddios.tistory.com/258](https://zeddios.tistory.com/258)
