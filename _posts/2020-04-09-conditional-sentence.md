@@ -140,5 +140,5 @@ deployment target과 관련있어 #available과 다르게 컴파일타임에 에
 ```
 이런 조건문이 앞에 붙은 함수, 클래스, 프로토콜은 iOS 12를 포함한 그 이상의 버전에서만 사용할 수 있다.   
  
-**🔔버전에 관련된 조건문 키워드는 [해당 포스팅](https://zeddios.tistory.com/647)을 통해 더 알아볼 수 있다.**   
+**🔔버전에 관련된 조건문 키워드는 [zedd님 포스팅](https://zeddios.tistory.com/647)을 통해 더 알아볼 수 있다.**   
  
