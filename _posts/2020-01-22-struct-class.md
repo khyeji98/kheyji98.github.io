@@ -84,7 +84,8 @@ class 클래스 이름 {
 클래스는 인스턴스를 생성한 후, 구조체와 달리 기본적인 이니셜라이저를 통해 초기화한다.
     
     
-> 참고로 클래스 내부 **저장 프로퍼티**는 객체를 만드는 시점에 무조건 초기값이 있어야 한다.
+> 참고로 클래스 내부 **저장 프로퍼티**는 객체를 만드는 시점에 무조건 초기값이 있어야 한다.   
+ 
 ```
 class SomeClass {
     var some: Int = 0
@@ -178,5 +179,5 @@ someInit이라는 변수에 nil을 할당해줘야 인스턴스가 해제되기 
 - 프레임워크 : 작성안함
 
 #### Reference)
-[https://www.zehye.kr/swift/2020/01/15/19swift_grammer12/](https://www.zehye.kr/swift/2020/01/15/19swift_grammer12/)
+[https://www.zehye.kr/swift/2020/01/15/19swift_grammer12/](https://www.zehye.kr/swift/2020/01/15/19swift_grammer12/)   
 [https://velog.io/@michael00987/Swift-%EA%B0%92-%ED%83%80%EC%9E%85%EA%B3%BC-%EC%B0%B8%EC%A1%B0-%ED%83%80%EC%9E%852020.10.29](https://velog.io/@michael00987/Swift-%EA%B0%92-%ED%83%80%EC%9E%85%EA%B3%BC-%EC%B0%B8%EC%A1%B0-%ED%83%80%EC%9E%852020.10.29)
