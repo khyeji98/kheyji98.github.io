@@ -1,7 +1,7 @@
 ---
 comments: true
 title: [Swift ) 조건문(if-else/guard/switch/#available)]
-key: 202001181
+key: 202001121
 modify_date: 2020-06-01
 picture_frame: shadow
 tags:
