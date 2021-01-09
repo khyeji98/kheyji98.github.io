@@ -12,6 +12,7 @@ tags:
  
 Struct와 Class는 데이터를 용도에 맞게 **묶어서 표현할 때 용이한 타입**으로, 프로퍼티와 메소드를 통해 구조화된 데이터와 기능을 가질 수 있어 하나의 새로운 **사용자 정의 데이터 타입**을 만드는 것이다.   
 둘의 구조가 거의 유사하지만 Struct(구조체)의 인스턴스는 **값 타입**이고, Class(클래스)의 인스턴스는 **참조 타입**이다.   
+값 타입과 
  
 # Struct
  
@@ -76,10 +77,24 @@ class SomeClass {
  
 var initializer = SomeClass()
 ```
-`SomeClass()`라고 
+`SomeClass()` 이렇게 초기화하는 것이 기본적인 이니셜라이저이며, 클래스 역시 마침표(.)를 통해 인스턴스에 접근할 수 있다.   
+그러나 구조체와 달리 클래스의 인스턴스는 **참조 타입**이므로   
+클래스 초기화할 때 상수(let)로 선언해도 내부 프로퍼티 값을 변경할 수 있다.
+```
+class SomeClass {
+    var some: Int = 0
+}
+ 
+var initializer = SomeClass()
+initializer.some = 1 // some = 1
+```
+그러나 
  
 # 구조체 VS 클래스
 
 #### 공통점
 
 #### 차이점
+
+#### Reference)
+[https://www.zehye.kr/swift/2020/01/15/19swift_grammer12/](https://www.zehye.kr/swift/2020/01/15/19swift_grammer12/)
