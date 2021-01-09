@@ -1,7 +1,7 @@
 ---
 comments: true
 title: [Swift ) 함수와 메소드(Function VS Method)]
-key: 202001121
+key: 202001281
 modify_date: 2020-07-01
 picture_frame: shadow
 tags:
