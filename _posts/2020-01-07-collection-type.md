@@ -1,6 +1,6 @@
 ---
 comments: true
-title: [Swift ) Collection Type]
+title: [Swift ) 콜렉션 타입(Collection Type)]
 key: 202001071
 modify_date: 2020-03-30
 picture_frame: shadow
@@ -8,7 +8,7 @@ tags:
   - swift
 ---
 
-# Collection Types
+# 콜렉션 타입(Collection Type)
 
 Swift Collection Types엔 Array, Set, Dictionary가 있다.   
 Array는 순서가 정해져 있으나, Set과 Dictionary는 순서가 정해져 있지 않다.
