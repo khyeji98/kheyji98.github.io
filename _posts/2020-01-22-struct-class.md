@@ -8,14 +8,14 @@ tags:
   - [swift]
 ---
  
-### Struct와 Class
+## Struct와 Class
  
 Struct와 Class는 데이터를 용도에 맞게 **묶어서 표현할 때 용이한 타입**으로, 프로퍼티와 메소드를 통해 구조화된 데이터와 기능을 가질 수 있어 하나의 새로운 **사용자 정의 데이터 타입**을 만드는 것이다.   
 둘의 구조가 거의 유사하지만 Struct(구조체)의 인스턴스는 **값 타입**이고, Class(클래스)의 인스턴스는 **참조 타입**이다.   
  
 
  
-### 구조체 정의
+## 구조체 정의
  
 구조체는 `struct`라는 키워드로 정의된다.
 ```
@@ -84,7 +84,8 @@ class 클래스 이름 {
 클래스는 인스턴스를 생성한 후, 구조체와 달리 기본적인 이니셜라이저를 통해 초기화한다.
     
     
-> 참고로 클래스 내부 **저장 프로퍼티**는 객체를 만드는 시점에 무조건 초기값이 있어야 한다.
+> 참고로 클래스 내부 **저장 프로퍼티**는 객체를 만드는 시점에 무조건 초기값이 있어야 한다.   
+ 
 ```
 class SomeClass {
     var some: Int = 0
@@ -178,5 +179,5 @@ someInit이라는 변수에 nil을 할당해줘야 인스턴스가 해제되기 
 - 프레임워크 : 작성안함
 
 #### Reference)
-[https://www.zehye.kr/swift/2020/01/15/19swift_grammer12/](https://www.zehye.kr/swift/2020/01/15/19swift_grammer12/)
+[https://www.zehye.kr/swift/2020/01/15/19swift_grammer12/](https://www.zehye.kr/swift/2020/01/15/19swift_grammer12/)   
 [https://velog.io/@michael00987/Swift-%EA%B0%92-%ED%83%80%EC%9E%85%EA%B3%BC-%EC%B0%B8%EC%A1%B0-%ED%83%80%EC%9E%852020.10.29](https://velog.io/@michael00987/Swift-%EA%B0%92-%ED%83%80%EC%9E%85%EA%B3%BC-%EC%B0%B8%EC%A1%B0-%ED%83%80%EC%9E%852020.10.29)
