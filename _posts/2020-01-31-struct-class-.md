@@ -26,6 +26,15 @@ struct 구조체 이름 {
  
 ### 구조체 인스턴스 생성 및 초기화
  
+인스턴스를 생성한 구조체는 기본적으로 *멤버와이즈 이니셜라이저*로 초기화할 수 있는데,
+```
+struct SomeStruct {
+    var some: Int
+}
+ 
+var initializer = SomeStruct(some: 2)
+```
+이렇게 
 
  
 # Class
