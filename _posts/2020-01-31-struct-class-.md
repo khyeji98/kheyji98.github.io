@@ -26,7 +26,7 @@ struct 구조체 이름 {
  
 ### 구조체 인스턴스 생성 및 초기화
  
-인스턴스를 생성한 구조체는 기본적으로 *멤버와이즈 이니셜라이저*로 초기화할 수 있는데,
+구조체는 인스턴스를 생성하고 사용자 정의 이니셜라이저를 구현하지 않으면 기본적으로 멤버와이즈 이니셜라이저를 사용한다.
 ```
 struct SomeStruct {
     var some: Int
@@ -34,8 +34,23 @@ struct SomeStruct {
  
 var initializer = SomeStruct(some: 2)
 ```
-이렇게 
-
+`SomeStruct(some: 2)` 이렇게 구조체 내부 프로퍼티를 파라미터(매개변수)로 갖는 것을 **멤버와이즈 이니셜라이저**라고 한다.   
+이렇게 구조체를 초기화하고 내부 인스턴스에 접근하고 싶다면 마침표(.)를 통해 접근할 수 있다.
+```
+var initializer = SomeStruct(some: 2)
+let newSome = initializer.some
+initializer.someMethod()
+```
+내부 프로퍼티 값 변경은 구조체를 변수(var)에 초기화했을 경우에만 가능하다.
+```
+struct SomeStruct {
+    let some: String
+}
+ 
+var initializer = SomeStruct(some: "some")
+initializer.some = "other" // error! : 'some' is a 'let' constant
+```
+물론 내부 프로퍼티가 상수로 선언된 경우에도 마침표(.)를 통해 접근할 수 없다.
  
 # Class
  
@@ -47,8 +62,15 @@ class 클래스 이름 {
     // code : 프로퍼티 혹은 메소드
 }
 ```
+ 
+### 클래스 인스턴스 생성 및 초기화
+ 
+클래스는 인스턴스를 생성한 후, 구조체와 달리 기본적인 이니셜라이저를 통해 초기화한다.
+```
 
-### 구조체 VS 클래스
+```
+ 
+# 구조체 VS 클래스
 
 #### 공통점
 
