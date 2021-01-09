@@ -107,4 +107,6 @@ print(num) // 1
 그러나 repeat-while 반복문일 때는 조건문 결과가 false임에도 `num += 1`이 한번 실행되었다.
 즉, repeat-while은 **적어도 한번은 꼭** 실행해야 하는 경우에 사용하는 것이다.
  
-참고 : [https://duwjdtn11.tistory.com/460](https://duwjdtn11.tistory.com/460)
+#### Reference)
+ 
+[https://duwjdtn11.tistory.com/460](https://duwjdtn11.tistory.com/460)
