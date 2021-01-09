@@ -319,7 +319,11 @@ class SubClass: SomeClass {
  
 타입 메소드 내에서도 `self` 키워드를 사용할 수 있지만, 타입 메소드의 경우 인스턴스가 아니라 **타입 자체**를 의미한다.
  
+#### What Does It Mean?
  
-#### Reference
+- override : 작성안함
+- static : 작성안함
+ 
+#### Reference)
  
 [https://zeddios.tistory.com/258](https://zeddios.tistory.com/258)
