@@ -164,7 +164,8 @@ someInit이라는 변수에 nil을 할당해줘야 인스턴스가 해제되기 
 - **참조 타입** : 인스턴스의 참조 정보 즉, **값의 메모리 위치**를 넘김(같은 클래스를  초기화한 두 변수 사례를 잘 이해해야 함)
 - 단일상속 : 
 - Apple 프레임워크 대부분의 큰 뼈대 구성중
-
+    
+    
 <p style="text-align:center"><img width="945" alt="KakaoTalk_Photo_2021-01-10-18-37-34" src="https://user-images.githubusercontent.com/50580583/104119898-23fd9600-5376-11eb-8c60-11a3f3e2d993.png"></p>
     
     
