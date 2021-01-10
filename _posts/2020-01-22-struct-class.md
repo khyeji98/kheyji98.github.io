@@ -34,14 +34,13 @@ struct SomeStruct {
  
 var initializer = SomeStruct(some: 2)
 ```
-`SomeStruct(some: 2)` 이렇게 구조체 내부 프로퍼티를 파라미터(매개변수)로 갖는 것을 **멤버와이즈 이니셜라이저**라고 한다.   
-이렇게 구조체를 초기화하고 내부 인스턴스에 접근하고 싶다면 마침표(.)를 통해 접근할 수 있다.
+`SomeStruct(some: 2)` 이렇게 구조체 내부 프로퍼티를 파라미터(매개변수)로 갖는 것을 **멤버와이즈 이니셜라이저**라고 한다.
 ```
 var initializer = SomeStruct(some: 2)
 let newSome = initializer.some
 initializer.someMethod()
 ```
-내부 프로퍼티 값 변경은 구조체를 변수(var)에 초기화했을 경우에만 가능하다.
+이렇게 구조체를 초기화하고 내부 인스턴스에 접근하고 싶다면 마침표(.)를 통해 접근할 수 있다.
 ```
 struct SomeStruct {
     let some: String
@@ -50,6 +49,7 @@ struct SomeStruct {
 var initializer = SomeStruct(some: "some")
 initializer.some = "other" // error! : 'some' is a 'let' constant
 ```
+내부 프로퍼티 값 변경은 구조체를 변수(var)에 초기화했을 경우에만 가능하다.
 물론 내부 프로퍼티가 상수로 선언됐다면 값을 변경할 수 없다.
  
 만약 같은 구조체를 초기화한 두 변수가 있는데, 둘 중 하나의 변수에서 내부 프로퍼티 값을 변경하면 나머지 변수에서 같은 프로퍼티 값도 변경될까?
