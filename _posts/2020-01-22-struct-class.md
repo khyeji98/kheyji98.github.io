@@ -165,6 +165,9 @@ someInit이라는 변수에 nil을 할당해줘야 인스턴스가 해제되기 
 - 단일상속 : 
 - Apple 프레임워크 대부분의 큰 뼈대 구성중
 
+<p style="text-align:center"><img width="784" alt="KakaoTalk_Photo_2021-01-10-18-13-09" src="https://user-images.githubusercontent.com/50580583/104118997-1218f480-5370-11eb-8876-137b82683580.png"></p>
+    
+    
 ### 구조체는 언제 사용하나요?
  
 - 연관된 값들을 모아 하나의 데이터 타입으로 표현하고자 할 때
