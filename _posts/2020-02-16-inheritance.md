@@ -138,11 +138,9 @@ print(result.superProperty) // 10
  
 #### 프로퍼티 옵저버 오버라이딩
  
-프로퍼티 옵저버는 프로퍼티 값이 
- 
-#### 서브스크립트 오버라이딩
- 
-
+프로퍼티 옵저버는 프로퍼티 값이 변경될 때 호출되기 때문에 프로퍼티가 원래 어떻게 구현되었는지는 중요하지 않다.   
+다만, 상수 저장 프로퍼티나 get-only 연산 프로퍼티를 재정의한다면 프로퍼티 옵저버를 추가할 순 없다.   
+또한 같은 프로퍼티에 get/set과 옵저버를 같이 설정할 순 없다.
  
 #### 서브클래스에서 슈퍼클래스의 메소드, 프로퍼티, 서브스크립트 접근하기
  
@@ -164,3 +162,14 @@ func someMethod() {
 이 외에도,
 - `super.someProprty` : 부모클래스이 프로퍼티에 접근하는 것
 - `super[someIndex]` : 서브스크립트를 재정의할 때 부모클래스의 서브스크립트에 접근하는 것
+ 
+### 오버라이딩 방지
+ 
+메소드, 프로퍼티, 서브스크립트의 재정의를 원하지 않는다면, 애초에 상위 클래스에서 `final` 키워드를 맨 앞에 붙여 해당 상위 클래스를 상속할 때 오버라이딩되는 것을 막을 수 있다.
+예를 들어 `final func`, `final var`, `final subscript` 이렇게 정의하면 된다.   
+만약 클래스 자체의 상속을 막고 싶다면, `final class` 이렇게 클래스를 정의해주면 해당 클래스를 상속할 수 없다.
+ 
+#### Reference)
+ 
+[https://hyunsikwon.github.io/swift/Swift-Inheritance-01/](https://hyunsikwon.github.io/swift/Swift-Inheritance-01/)   
+[https://velog.io/@co-in/%EA%B3%B5%EC%8B%9D-%EB%AC%B8%EC%84%9C%EB%A1%9C-%EA%B3%B5%EB%B6%80%ED%95%98%EB%8A%94-Swift-12-%EC%83%81%EC%86%8D](https://velog.io/@co-in/%EA%B3%B5%EC%8B%9D-%EB%AC%B8%EC%84%9C%EB%A1%9C-%EA%B3%B5%EB%B6%80%ED%95%98%EB%8A%94-Swift-12-%EC%83%81%EC%86%8D)
