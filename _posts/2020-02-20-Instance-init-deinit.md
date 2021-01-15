@@ -75,6 +75,119 @@ class SomeClass {
 var classResult = SomeClass()
 ```
 만약 이렇게 이니셜라이저가 두개라면 클래스를 초기화할 때 파라미터가 있는 이니셜라이저로 초기활할 것인지, 파라미터가 없는 이니셜라이저로 초기화할 것인지 선택할 수 있다.
+    
+    
+그리고 이니셜라이저를 정의할 때 파라미터에서 값을 받아 프로퍼티에 할당해야 하는데 해당 파라미터에 값을 할당하지 않을 경우가 있을 수 있다. 프로젝트할 땐 여러가지 경우의 수가 있으니까..;   
+만약 파라미터를 설정해야 하는데 해당 파라미터 값이 없을 수도 있을 수도 있는 상황이라면,
+```
+class SomeClass {
+    var someProperty = 0
+    var optionalProperty: String?
+    
+    init(some: Int, optional: String) {
+        self.someProperty = some
+        self.optionalProperty = optional
+    }
+}
+ 
+var classResult = SomeClass(some: 5, optional: "")
+```
+이렇게 애초에 값이 없을 수도 있는, 파라미터의 값을 할당받는, 프로퍼티를 옵셔널로 설정해 ""로 값을 주지 않으면 된다.
+```
+class SomeClass {
+    var someProperty = 0
+    var optionalProperty: String?
+    
+    init(some: Int, optional: String?) {
+        self.someProperty = some
+        self.optionalProperty = optional
+    }
+}
+ 
+var classResult = SomeClass(some: 5, optional: nil)
+```
+또한 이렇게 파라미터 자체를 옵셔널 타입으로 설정하는 방법도 있다.   
+파라미터 자체가 옵셔널 타입이라면 파라미터에 nil 값을 할당해도 실행이 잘 된다.
+    
+    
+```
+class SomeClass {
+    let someProperty: Int
+    var optionalProperty: String?
+    
+    init(some: Int, optional: String?) {
+        self.someProperty = some
+        self.optionalProperty = optional
+    }
+}
+```
+참고로 초기화까지만 값을 할당받고 이후 값의 변경이 없어야 하는 프로퍼티는 상수(let)로 정의해 초기값까지만 할당해주면 된다.
 
+#### 기본 이니셜라이저 VS 멤버와이즈 이니셜라이저
+ 
+[클래스 VS 구조체](https://khyeji98.github.io/post/2020/01/22/struct-class.html) 포스팅에서도 설명한 적 있는데 정말 간단히 나눠 설명할 수 있다.
+    
+    
+먼저 구조체는 **기본 이니셜라이저**와 **멤버와이즈 이니셜라이저** 모두 사용할 수 있다.   
+그러나 둘을 사용하는 경우가 다른데,
+```
+struct SomeStruct {
+    var someProperty: Int
+}
+ 
+var result = SomeStruct(someProperty: 0)
+```
+이렇게 구조체의 프로퍼티에 기본값을 정의하지 않을 경우엔 초기화시 **멤버와이즈 이니셜라이저**만을 사용해야하고
+```
+struct SomeStruct {
+    var someProperty: Int = 0
+}
+ 
+var result1 = SomeStruct()
+var result2 = SomeStruct(someProperty: 0)
+```
+기본값을 정의한다면 **기본 이니셜라이저**와 **멤버와이즈 이니셜라이저** 모두 사용할 수 있다.
+    
+    
+구조체와 달리 클래스는 경우와 상관없이 **기본 이니셜라이저**만을 사용할 수 있다.
+```
+class SomeClass {
+    var someProperty: Int = 0
+    var optionalProperty: String?
+}
+ 
+var classResult = SomeClass()
+```
+ 
+#### 이니셜라이저 실패
+ 
+이니셜라이저의 파라미터로 전달된 값이 정상적인 범주에 들지 않을 가능성이 있어, 이러한 경우 nil을 반환하게 한다.   
+이것을 실패할 가능성이 있는 이니셜라이저라고 한다.
+```
+class SomeClass {
+    var someProperty: Int = 0
+    var optionalProperty: String?
+    
+    init?(some: Int, optional: String) {
+        if some > 10000 {
+            return nil
+        }
+        
+        self.someProperty = some
+        self.optionalProperty = optional
+    }
+}
+ 
+var result1 = SomeClass(some: 5, optional: "optional")
+var result2 = SomeClass(some: 10200, optional: "failure")
+ 
+print(result2?.someProperty) // nil
+print(result2?.optionalProperty) // nil
+```
+some 파라미터로 전달된 값이 if문에 해당되어 nil로 반환되었으며, result1엔 초기화에 성공했으나 result2엔 초기화에 실패한 것이다.   
+때문에 result2에 초기화된 프로퍼티 값이 모두 nil로 반환된다.
+ 
+> `init?`으로 초기화한 변수 result1, result2는 모두 옵셔널 타입인 SomeClass? 타입이다.
+ 
 ### 디이니셜라이저(Deinitializer)
 
