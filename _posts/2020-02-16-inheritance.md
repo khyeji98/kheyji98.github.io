@@ -137,7 +137,8 @@ print(result.superProperty) // 10
 *newValue가 뭐지? 한다면 [프로퍼티 옵저버](https://khyeji98.github.io/post/2020/02/11/property.html#%ED%94%84%EB%A1%9C%ED%8D%BC%ED%8B%B0-%EA%B0%90%EC%8B%9C%EC%9E%90property-observer)를 보면 알 수 있다.*
  
 #### 프로퍼티 옵저버 오버라이딩
-```
+ 
+
  
 #### 서브스크립트 오버라이딩
  
