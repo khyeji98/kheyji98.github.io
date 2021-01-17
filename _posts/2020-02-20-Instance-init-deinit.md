@@ -196,11 +196,11 @@ some 파라미터로 전달된 값이 if문에 해당되어 nil로 반환되었�
 ```
 class SomeClass {
     var someProperty: Int = 0
-    var optionalProperty: String
+    var otherProperty: String
     
-    init(some: Int, optional: String) {
+    init(some: Int, other: String) {
         self.someProperty = some
-        self.optionalProperty = optional
+        self.otherProperty = other
     }
     
     deinit {
@@ -208,8 +208,8 @@ class SomeClass {
     }
 }
  
-var result: SomeClass? = SomeClass(some: 5, optional: "optional")
-print(result?.optionalProperty) // "Optional(optional)"
+var result: SomeClass? = SomeClass(some: 5, other: "other")
+print(result?.otherProperty) // "Optional(other)"
  
 result = nil // "deinitializer"
 ```
@@ -217,22 +217,22 @@ result = nil // "deinitializer"
 `return = nil`이 실행되는 순간 메모리가 해제되는 것인데 메모리가 해제되기 직전, `deinit`이 실행된다.   
     
     
-#### 그렇다면 왜 "optional" 이 아니라 "Optional(optional)"으로 출력되었을까?
+#### 그렇다면 왜 "other" 이 아니라 "Optional(other)"으로 출력되었을까?
  
-그건 바로 변수 result가 SomeClass?인 옵셔널타입으로 선언되었기 때문이고, `result.optionalProperty` 값을 부를 때 옵셔널타입인 채로 불렀기 때문이다.   
-그리고 이미 작성했을 때부터 옵셔널을 벗겨주지 않았기 때문에 `print(result?.optionalProperty)` 이 코드라인에서 waning이 떴을 것이다.   
+그건 바로 변수 result가 SomeClass?인 옵셔널타입으로 선언되었기 때문이고, `result.otherProperty` 값을 부를 때 옵셔널타입인 채로 불렀기 때문이다.   
+그리고 이미 작성했을 때부터 옵셔널을 벗겨주지 않았기 때문에 `print(result?.otherProperty)` 이 코드라인에서 waning이 떴을 것이다.   
     
     
 그렇다면 어떻게 해야 안전하게 옵셔널을 벗기고 값을 불러올 수 있을까?
 ```
-var result: SomeClass? = SomeClass(some: 5, optional: "optional")
+var result: SomeClass? = SomeClass(some: 5, other: "other")
  
 if let result = result {
-    print(result.optionalProperty)
+    print(result.otherProperty)
 } else {
     print("'result' is optional")
 }
-// "optional"
+// "other"
 ```
 이렇게 `if let`을 통해 옵셔널 바인딩을 해주면 변수인 옵셔널 result가 아니라 if문에 선언된 상수 result으로 프로퍼티에 안전하게 접근할 수 있다.
  
