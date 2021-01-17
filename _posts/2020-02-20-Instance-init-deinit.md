@@ -190,4 +190,52 @@ some 파라미터로 전달된 값이 if문에 해당되어 nil로 반환되었�
 > `init?`으로 초기화한 변수 result1, result2는 모두 옵셔널 타입인 SomeClass? 타입이다.
  
 ### 디이니셜라이저(Deinitializer)
-
+ 
+디이니셜라이저란 인스턴스가 메모리에서 해제되기 직전에 호출되는 것으로, 해제되기 직전에 인스턴스왁 관련하여 정리 작업을 실행할 수 있다.   
+그리고 **디이니셜라이저는 클래스에서만 구현할 수 있다.**
+```
+class SomeClass {
+    var someProperty: Int = 0
+    var optionalProperty: String
+    
+    init(some: Int, optional: String) {
+        self.someProperty = some
+        self.optionalProperty = optional
+    }
+    
+    deinit {
+        print("deinitializer")
+    }
+}
+ 
+var result: SomeClass? = SomeClass(some: 5, optional: "optional")
+print(result?.optionalProperty) // "Optional(optional)"
+ 
+result = nil // "deinitializer"
+```
+이렇게 클래스를 초기화할 때부터 **옵셔널타입으로 초기화**해줘야 나중에 nil을 할당할 수 있고, 그래야 메모리에서 해제할 수 있다.   
+`return = nil`이 실행되는 순간 메모리가 해제되는 것인데 메모리가 해제되기 직전, `deinit`이 실행된다.   
+    
+    
+그렇다면 `print(result?.optionalProperty)` 이 코드라인이 실행되었을 때 왜 **"optional"** 이 아니라 **"Optional(optional)"** 이라고 출력되었을까?   
+그건 바로 변수 result가 SomeClass?인 옵셔널타입으로 선언되었기 때문이고, `result.optionalProperty` 값을 부를 때 옵셔널타입인 채로 불렀기 때문이다.   
+그리고 이미 작성했을 때부터 옵셔널을 벗겨주지 않았기 때문에 `print(result?.optionalProperty)` 이 코드라인에서 waning이 떴을 것이다.   
+    
+    
+그렇다면 어떻게 해야 안전하게 옵셔널을 벗기고 값을 불러올 수 있을까?
+```
+var result: SomeClass? = SomeClass(some: 5, optional: "optional")
+ 
+if let result = result {
+    print(result.optionalProperty)
+} else {
+    print("'result' is optional")
+}
+// "optional"
+```
+이렇게 `if let`을 통해 옵셔널 바인딩을 해주면 변수인 옵셔널 result가 아니라 if문에 선언된 상수 result으로 프로퍼티에 안전하게 접근할 수 있다.
+ 
+#### Reference)
+ 
+[https://seoyoung612.tistory.com/entry/swift%EC%8A%A4%EC%9C%84%ED%94%84%ED%8A%B8%EA%B8%B0%EB%B3%B8%EB%AC%B8%EB%B2%9508-%EC%9D%B8%EC%8A%A4%ED%84%B4%EC%8A%A4-%EC%83%9D%EC%84%B1%EA%B3%BC-%EC%86%8C%EB%A9%B8](https://seoyoung612.tistory.com/entry/swift%EC%8A%A4%EC%9C%84%ED%94%84%ED%8A%B8%EA%B8%B0%EB%B3%B8%EB%AC%B8%EB%B2%9508-%EC%9D%B8%EC%8A%A4%ED%84%B4%EC%8A%A4-%EC%83%9D%EC%84%B1%EA%B3%BC-%EC%86%8C%EB%A9%B8)   
+[https://velog.io/@leeyoungwoozz/Swift-%EB%AC%B8%EB%B2%95-%EC%9D%B8%EC%8A%A4%ED%84%B4%EC%8A%A4-%EC%83%9D%EC%84%B1-%EB%B0%8F-%EC%86%8C%EB%A9%B8](https://velog.io/@leeyoungwoozz/Swift-%EB%AC%B8%EB%B2%95-%EC%9D%B8%EC%8A%A4%ED%84%B4%EC%8A%A4-%EC%83%9D%EC%84%B1-%EB%B0%8F-%EC%86%8C%EB%A9%B8)
