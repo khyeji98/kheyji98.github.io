@@ -124,8 +124,22 @@ otherClass2와 anotherClass2는 SomeClass로 업캐스팅했기 때문에 슈퍼
 - as? : 타입변환에 성공하면 옵셔널값으로 할당, 실패하면 nil 할당
 - as! : 타입변환에 성공하면 강제 언래핑된 값 할당, 실패하면 런타임 에러(무조건 성공할 경우에만 사용)
  
-다운캐스팅은 실제 프로젝트에서 너무나도 많이 사용되기 때문에 예제가 아닌 실제 프로젝트에 작성된 코드를 가져와봤다.
+다운캐스팅은 실제 프로젝트에서 너무나도 많이 사용되기 때문에 예제가 아닌 실제 프로젝트에 작성된 코드를 가져와봤다.   
+tableView를 사용할 때 tableViewDelegate 프로토콜 메소드 중에서 `tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell` 이 메소드를 구현할 때 사용한 코드인데,
+```
+if let cell = tableView.dequeueReusableCell(withIndentifier: "Title") as? TitleTableCell {
+    // TitleTableCell 인스턴스 사용하는 코드들
+}
+```
+이렇게 `if let`과 `as?`를 사용하는 방법도 있고
 ```
 let cell = tableView.dequeueReusableCell(withIdentifier: "Title") as! TitleTableCell
+// TitleTableCell 인스턴스 사용하는 코드들
 ```
-위 
+이렇게 as!만을 사용하는 방법도 있다.   
+`tableView.dequeueReusableCell(withIdentifier:)`은 UITableViewCell 타입이고 나는 UITableViewCell을 상속받은 TitleTableCell의 인스턴스에 접근할 것이기 때문에 다운캐스팅을 통해 접근하는 것이다.
+ 
+#### Reference)
+ 
+[https://jinnify.tistory.com/16](https://jinnify.tistory.com/16)   
+[https://zeddios.tistory.com/265](https://zeddios.tistory.com/265)
