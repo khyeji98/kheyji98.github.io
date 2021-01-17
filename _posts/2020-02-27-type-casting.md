@@ -10,4 +10,33 @@ tags:
  
 # 타입 캐스팅(Type Casting)
  
-타입 캐스팅이란 메소드나 함수의 반환값이 불확실한 경우, `as` 키둬드를 통해작성자가 의도한 타입을 미리 명시해 컴파일러에게 알려주는 것이다.   
+타입 캐스팅이란 인스턴스의 타입을 확인하거나 인스턴스의 타입을 쉽게 다루기 위해 사용되는 문법인데, `is`와 `as` 연산자를 사용한다.    
+이 두 연산자는 값의 타입을 확인하거나 값을 다른 타입으로 변환하는 것으로 매우 간단한 방법이다.
+```
+class SomeClass {
+    var someProperty: String
+    
+    init(some: String) {
+        self.someProperty = some
+    }
+}
+ 
+var result = SomeClass(some: "some property")
+ 
+if result is SomeClass {
+    print("true")
+} else {
+    print("false")
+}
+// "true"
+```
+가장 간단하게 표현해 보자면 이렇게 result가 SomeClass의 인스턴스인지를 확인하는 것이고, 결과로 true가 출력된다.
+```
+if result.someProperty is String {
+    print("true")
+} else {
+    print("false")
+}
+// "true"
+```
+이 경우도 마찬가지로 `result.someProperty`가 "some property"를 반환하기 때문에 "some property"가 String인지 확인하는 것이고, 결과로 true가 출력된다.
