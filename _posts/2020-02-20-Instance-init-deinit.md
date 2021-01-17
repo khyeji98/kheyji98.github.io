@@ -217,7 +217,8 @@ result = nil // "deinitializer"
 `return = nil`이 실행되는 순간 메모리가 해제되는 것인데 메모리가 해제되기 직전, `deinit`이 실행된다.   
     
     
-그렇다면 `print(result?.optionalProperty)` 이 코드라인이 실행되었을 때 왜 **"optional"** 이 아니라 **"Optional(optional)"** 이라고 출력되었을까?   
+#### 그렇다면 왜 "optional" 이 아니라 "Optional(optional)"으로 출력되었을까?
+ 
 그건 바로 변수 result가 SomeClass?인 옵셔널타입으로 선언되었기 때문이고, `result.optionalProperty` 값을 부를 때 옵셔널타입인 채로 불렀기 때문이다.   
 그리고 이미 작성했을 때부터 옵셔널을 벗겨주지 않았기 때문에 `print(result?.optionalProperty)` 이 코드라인에서 waning이 떴을 것이다.   
     
