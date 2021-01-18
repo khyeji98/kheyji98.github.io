@@ -292,7 +292,7 @@ SomeClass.someTypeMethod()
 SomeClass.otherTypeMethod()
 ```
 인스턴스화를 통해 메소드 호출이 가능했던 인스턴스 메소드와는 다르게,   
-바로 타입에 체이닝을 통해 메소드 호출이 가능하다.
+바로 타입에 체이닝을 통해 **직접 바로** 메소드 호출이 가능하다.
  
  
 class-타입 메소드는 SomeClass를 채택한다면 재정의할 수 있다.
