@@ -177,7 +177,16 @@ for num in nums {
 ```
 for문에서는 break를 사용해 loop를 중단할 수 있으나, forEach에서는 break를 사용할 수 없다.   
 forEach에 break를 입력하는 순간 이런 에러 메세지가 뜬다.
-<img width="398" alt="KakaoTalk_Photo_2021-01-19-16-06-39" src="https://user-images.githubusercontent.com/50580583/104999855-e634f780-5a70-11eb-8ba6-9ac7c7eede63.png">
+<p style="text-align:center"><img width="398" alt="KakaoTalk_Photo_2021-01-19-16-06-39" src="https://user-images.githubusercontent.com/50580583/104999855-e634f780-5a70-11eb-8ba6-9ac7c7eede63.png"></p>
+ 
+#### continue
+ 
+continue 또한 for문에서는 사용할 수 있으나 
+ 
+ 
+#### return
+ 
+
  
 #### Reference)
  
