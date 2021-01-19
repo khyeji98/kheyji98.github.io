@@ -142,9 +142,5 @@ deployment target과 관련있어 #available과 다르게 컴파일타임에 에
  
 **🔔버전에 관련된 조건문 키워드는 [zedd님 포스팅](https://zeddios.tistory.com/647)을 통해 더 알아볼 수 있다.**   
  
-#### What Does It Mean?
- 
-- API : 작성안함
- 
 #### Reference)
 [https://zeddios.tistory.com/647](https://zeddios.tistory.com/647)
