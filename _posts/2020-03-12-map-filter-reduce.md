@@ -62,7 +62,8 @@ print(newNums)
  
 ### Filter
  
-Filter는 
+Filter는 데이터를 추출할 때 사용하는데, 기존 데이터에서 조건에 맞게 내부의 값을 걸러 새로운 콜렉션으로 반환한다.   
+Filter 역시 
  
 ### Reduce
 
