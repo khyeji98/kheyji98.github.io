@@ -156,6 +156,9 @@ forEach는 정말 for문과 뭐가 다른건지 나도 처음에 모르고 사�
 다른 점이라면 forEach는 클로저를 사용해 상수를 따로 정의하지 않아도 된다는 점?   
  
 그런데 더 많은 차이점이 있었다.
+ 
+#### break
+ 
 ```
 var nums = [1, 2, 3, 4, 5]
 nums.forEach{
@@ -172,7 +175,9 @@ for num in nums {
 }
 // 1
 ```
-for문에서는 **break**를 
+for문에서는 break를 사용해 loop를 중단할 수 있으나, forEach에서는 break를 사용할 수 없다.   
+forEach에 break를 입력하는 순간 이런 에러 메세지가 뜬다.
+
  
 #### Reference)
  
