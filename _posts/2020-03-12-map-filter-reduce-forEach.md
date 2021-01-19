@@ -181,11 +181,39 @@ forEach에 break를 입력하는 순간 이런 에러 메세지가 뜬다.
  
 #### continue
  
-continue 또한 for문에서는 사용할 수 있으나 forEach
+continue 또한 for문에서는 사용할 수 있으나 forEach에서는 사용할 수 없다.
  
 #### return
  
-
+return은 for문에서 사용할 수 없으나 forEach에서는 사용할 수 있다.   
+사용할 수는 있지만 신기하게 작동한다.
+```
+var nums = [1, 2, 3, 4, 5]
+nums.forEach{
+    if $0 == 5 {
+        return
+    }
+    print($0)
+}
+// 1
+// 2
+// 3
+// 4
+```
+return이 실행되면 해당 원소는 더이상 코드진행이 되지않고 forEach를 빠져나간다.
+```
+nums.forEach{
+    if $0 == 2 {
+        return
+    }
+    print($0)
+}
+// 1
+// 3
+// 4
+// 5
+```
+이렇게 return이 
  
 #### Reference)
  
