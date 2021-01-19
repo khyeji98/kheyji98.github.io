@@ -181,8 +181,7 @@ forEach에 break를 입력하는 순간 이런 에러 메세지가 뜬다.
  
 #### continue
  
-continue 또한 for문에서는 사용할 수 있으나 
- 
+continue 또한 for문에서는 사용할 수 있으나 forEach
  
 #### return
  
