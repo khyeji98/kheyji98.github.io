@@ -52,11 +52,11 @@ print(nums) // [2, 3, 4, 5, 6]
 ```
 var nums = [1, 2, 3, 4, 5]
 var newNums = [Int]()
-
+ 
 for num in nums {
     newNums.append(num + 1)
 }
-
+ 
 print(newNums)
 ```
 매우 간단한 예제임에도 불구하고 코드라인의 수가 차이난다.   
@@ -86,13 +86,13 @@ print(nums) // [2, 4, 6, 8, 10]
 ```
 var nums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 var evenNums = [Int]()
-
+ 
 for num in nums {
     if num % 2 == 0 {
         evenNums.append(num)
     }
 }
-
+ 
 print(evenNums) // [2, 4, 6, 8, 10]
 ```
 이렇게 감결한 filter에 비해 조금 더 복잡해진다.   
@@ -104,28 +104,39 @@ Reduce도 데이터를 결합, 즉 합치기 위해 사용된다.
 말 그대로 기존 데이터에서 **내부의 값들을 결합**해 결합된 하나의 새로운 값을 반환하는 것이다.   
 ```
 var nums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-var sumNums = nums.reduce(0) { (first, second) -> Int in
+var sumNum = nums.reduce(0) { (first, second) -> Int in
     return first + second
 }
-print(sumNums)
+print(sumNum) // 55
 ```
 앞서 설명한 map, filter와 다른 점이 있는데, reduce는 초기값을 입력해야 한다.   
 여기서 초기값은 `(0)`으로 우리는 초기값없이 순수한 nums의 결합값을 원하기 때문에 0을 입력했다.   
-map과 
+ 
+map과 filter는 최대한 축약한 후행 클로저의 경우만 설명했지만 reduce는 더 자세한 설명이 필요할 것 같아 생략하지 않은 **기본 후행 클로저의 경우**도 설명하는 것이다.
 ```
 var nums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-var sumNums = nums.reduce(0){$0 + $1}
-print(sumNums)
+var sumNum = nums.reduce(0){$0 + $1}
+print(sumNum) // 55
 ```
-
-reduce를 이렇게 표현할 수도 있지만,
+이렇게 축약해서 표현할 수도 있고,
 ```
 var nums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-var sumNums = nums.reduce(0, {$0 + $1})
-print(sumNums)
+var sumNum = nums.reduce(0, {$0 + $1})
+print(sumNum) // 55
 ```
-이렇게 표현할 수도 있으며,
-
+이렇게 표현할 수도 있다.
+ 
+물론 for문으로도 표현할 수 있다
+```
+var nums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+var sumNum = Int()
+ 
+for num in nums {
+    sumNum += num
+}
+ 
+print(sumNum) // 55
+```
  
 #### Reference)
  
