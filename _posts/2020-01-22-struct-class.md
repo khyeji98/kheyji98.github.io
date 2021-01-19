@@ -176,13 +176,6 @@ someInit이라는 변수에 nil을 할당해줘야 인스턴스가 해제되기 
 - 캡슐화한 값을 참조가 아닌 복사하는 것이 합당할 때
 - 자신을 상속할 필요가 없거나 자신이 다른 타입을 상속받을 필요도 없을 때
  
-#### What Does It Mean?
- 
- - 값타입 VS 참조타입 : 작성안함
- - 초기화 : 작성안함
-- 객체지향 프로그래밍 : 작성안함
-- 프레임워크 : 작성안함
-
 #### Reference)
 [https://www.zehye.kr/swift/2020/01/15/19swift_grammer12/](https://www.zehye.kr/swift/2020/01/15/19swift_grammer12/)   
 [https://velog.io/@michael00987/Swift-%EA%B0%92-%ED%83%80%EC%9E%85%EA%B3%BC-%EC%B0%B8%EC%A1%B0-%ED%83%80%EC%9E%852020.10.29](https://velog.io/@michael00987/Swift-%EA%B0%92-%ED%83%80%EC%9E%85%EA%B3%BC-%EC%B0%B8%EC%A1%B0-%ED%83%80%EC%9E%852020.10.29)
