@@ -1,6 +1,6 @@
 ---
 comments: true
-title: [Swift ) 고차함수(Map, Filter, Reduce)]
+title: [Swift ) 고차함수(Map, Filter, Reduce, For-Each)]
 key: 202003121
 modify_date: 2020-09-20
 picture_frame: shadow
@@ -16,7 +16,7 @@ tags:
 스위프트에서 함수는 1급시민이기에 다른 함수를 인자로 받거나 반환할 수 있다고 한다.   
  
 또한 고차함수는 함수의 내부코드를 건드리지 않고 외부에서 실행흐름을 추가할 수 있어 **함수의 재활용성, 재사용성**의 이점을 얻을 수 있다.   
-고차함수에는 **Map, Filter, Reduce**가 있다.   
+고차함수에는 **Map, Filter, Reduce** 그리고 **forEach**가 있다.   
     
     
 아직 각 함수에 대한 자세한 설명은 안했지만, 고차함수의 사용목적과 원리만을 보면 for문과 다를 바 없어보이지만 고차함수의 여러 이점때문에 **for문보다 고차함수의 사용을 권장**하고 있다.   
@@ -138,7 +138,44 @@ for num in nums {
 print(sumNum) // 55
 ```
  
+### forEach
+ 
+forEach는 위의 고차함수들과는 달리 데이터에 특정 행동을 하지는 않고 기존 데이저 **각각의 내부값에 접근만 한다.**   
+그래서 반환타입도 Void로 되어있다.   
+값에 적용되는 특정 행동이 없는만큼 요긴하게 쓰인다.
+```
+var nums = [1, 2, 3, 4, 5]
+nums.forEach{print($0)}
+// 1
+// 2
+// 3
+// 4
+// 5
+```
+forEach는 정말 for문과 뭐가 다른건지 나도 처음에 모르고 사용했다.   
+다른 점이라면 forEach는 클로저를 사용해 상수를 따로 정의하지 않아도 된다는 점?   
+ 
+그런데 더 많은 차이점이 있었다.
+```
+var nums = [1, 2, 3, 4, 5]
+nums.forEach{
+    print($0)
+}
+// 1
+// 2
+// 3
+// 4
+// 5
+for num in nums {
+    print(num)
+    break
+}
+// 1
+```
+for문에서는 **break**를 
+ 
 #### Reference)
  
 [https://shark-sea.kr/entry/Swift-%EA%B3%A0%EC%B0%A8%ED%95%A8%EC%88%98-Map-Filter-Reduce-%EC%95%8C%EC%95%84%EB%B3%B4%EA%B8%B0](https://shark-sea.kr/entry/Swift-%EA%B3%A0%EC%B0%A8%ED%95%A8%EC%88%98-Map-Filter-Reduce-%EC%95%8C%EC%95%84%EB%B3%B4%EA%B8%B0)   
-[https://duwjdtn11.tistory.com/545](https://duwjdtn11.tistory.com/545)
+[https://duwjdtn11.tistory.com/545](https://duwjdtn11.tistory.com/545)   
+[https://kimlh2.tistory.com/entry/Swift-for-in-foreach-%EC%9D%98-%EC%B0%A8%EC%9D%B4%EC%A0%90](https://kimlh2.tistory.com/entry/Swift-for-in-foreach-%EC%9D%98-%EC%B0%A8%EC%9D%B4%EC%A0%90)
