@@ -40,7 +40,13 @@ let threeTimesTable = TimesTable(multiplier: 3)
 print(threeTimesTable[6]) // 18
 ```
 타임테이블 예제는 TimesTable 구조체가 초기화될 때 multiplier라는 상수에 3이라는 초기값이 할당되었고, 그때부터 threeTimesTable이라는 상수는 구구단3단이 된 것이다.   
-그리고 
+그리고 `threeTimesTable[6]` 이렇게 서브스크립트가 호출(?)되면서 구구단3단에서 6번째인 3 * 6의 값이 반환된 것이다.   
+ 
+물론 서브스크립트도 재정의가 가능하다!
+ 
+### 타입 서브스크립트
+ 
+타입 서브스크립트는 인스턴스 메소드&타입 메소드에서와 동일하게 인스턴스가 아니라 타입 자체에서 사용할 수 있는 서브스크립트를 뜻하고, 역시 맨앞에 `static` 키워드를 붙여야 한다.
  
 #### Reference)
  
