@@ -15,7 +15,7 @@ tags:
 서브스크립트는 콜렉션, 리스트, 시퀀스 타입의 개별 요소에 접근할 수 있는 지름길을 제공한다.   
 추가적인 메소드없이 특정 값을 할당하거나 가져올 수 있기 때문에 지름길이라고 비유한 것이다.   
 예를 들어 우리가 배열에서 특정 원소를 불러올 때 `array[0]` 이렇게 배열의 index를 통해 값을 가져올 수 있는데, 이 때 `[0]` 이렇게 부를 수 있도록 정의하는 것을 **서브스크립트**라고 한다.   
-물론 해당 
+물론 해당 예에 key값을 통해 value값을 얻을 수 있는 Dictionary도 포함된다.
 ```
 subscript(index: Int) -> Int {
 	get {
@@ -39,7 +39,8 @@ struct TimesTable {
 let threeTimesTable = TimesTable(multiplier: 3)
 print(threeTimesTable[6]) // 18
 ```
-
+타임테이블 예제는 TimesTable 구조체가 초기화될 때 multiplier라는 상수에 3이라는 초기값이 할당되었고, 그때부터 threeTimesTable이라는 상수는 구구단3단이 된 것이다.   
+그리고 
  
 #### Reference)
  
