@@ -308,6 +308,27 @@ class SubClass: SomeClass {
  
 타입 메소드 내에서도 `self` 키워드를 사용할 수 있지만, 타입 메소드의 경우 인스턴스가 아니라 **타입 자체**를 의미한다.
  
+#### 번외) 파라미터는 상수?
+ 
+함수를 선언할 때 정의되는 파라미터는 변하지 않는 값, 즉 상수로 정의된다.   
+그렇다면 파라미터는 처음 호출될 때 할당되는 초기값 외에는 값을 할당해 줄 수 없을까?   
+    
+    
+원래는 그렇다. 하지만 이걸 가능하게 해주는 키워드가 있는데 바로 `input`이다.   
+```
+func someFunction(_ parameter: inout Int) {
+    parameter += 5
+    print("value: \(parameter)")
+}
+```
+`inout` 키워드를 사용하지 않았다면 함수 내에서 파라미터의 값을 변경할 수 없었을 것이다.   
+이렇게 파라미터의 값을 변경할 수 있게 된 대신,
+```
+var value = 10
+someFunction(&value)
+```
+함수를 호출할 때 파라미터 값 앞에 `&` 키워드를 붙여줘야 하고 파라미터 placeholder에 바로 10이라는 값을 넣을 수 없고 따로 변수나 상수에 할당한 다음 파라미터에 할당할 수 있다.
+ 
 #### Reference)
  
 [https://zeddios.tistory.com/258](https://zeddios.tistory.com/258)
