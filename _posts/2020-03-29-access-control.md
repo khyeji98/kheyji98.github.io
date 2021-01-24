@@ -45,12 +45,58 @@ public subscript
  
 ### oepn
  
-open 키워드의 접근 
+open 키워드는 **개방 접근레벨**로 접근제한이 가장 낮다.   
+open 접근은 클래스와 클래스의 멤버에만 사용할 수 있으며, open 접근으로 정의된 클래스는 정의된 모듈 밖의 다른 모듈에서도 상속할 수 있다.   
+또한 open 접근으로 정의된 클래스의 멤버는 해당 멤버가 정의된 모듈 밖의 다른 모듈에서도 재정의할 수 있다.   
+ 
+클래스를 open 접근으로 정의한다는 것은 **해당 클래스를 다른 모듈에서도 부모클래스(super class)로 사용하겠다는 목적으로 정의된 것**이다.
  
 ### public
-
+ 
+public 키워드는 **공개 접근레벨**로 public 접근으로 정의된 요소는 어디서든 사용할 수 있다.   
+public 접근은 open 접근과 비슷하지만 명확한 차이가 있다.
+ 
+#### open VS public
+ 
+open과 public 접근으로 정의된 프로퍼티, 메소드 등은 모든 모듈 및 소스파일 내에서 **사용**할 수 있다.   
+그래서 open과 public 접근 모두 일반적으로 프레임워크에 공용 인터페이스를 지정할 때 사용된다.   
+그러나, open과 public에는 차이가 있다.
+ 
+**public은 모듈 외부에서 상속할 수 없다.**   
+open과 public의 공통점을 설명할 때 "사용"이라는 키워드에 강조를 했었다.   
+oepn과 public은 모듈의 내외부, 소스파일의 내외부에서 모두 **사용**은 가능하지만 public의 경우 모듈의 외부에서 **상속**은 불가능하다.
+```
+// SomeSourceFile.swift
+// SomeFramework
+// Created by Hyeji on ...
+ 
+public class PublicClass {
+    public init(){
+        // code
+    }
+}
+```
+예를 들어 이렇게 SomeFramework 모듈 안에 있는 SomeSourceFile에 PublicClass라는 public 접근 클래스를 정의했다고 가정해보자.
+```
+// 소스파일 in 외부에 있는 다른 모듈
+ 
+import SomeFramework
+ 
+// 사용
+let publicClass = PublicClass() // ok!
+ 
+// 상속
+class SomeClass: PublicClass { // error!
+    // code
+}
+```
+이렇게 사용과 상속이 다르고, public은 외부 모듈에서 사용은 가능하나, 상속이 불가능하다는 것을 알 수 있다.   
+그렇기 때문에 open의 접근제한이 public보다 더 낮은 것이다.
+ 
 ### internal
+ 
 
+ 
 ### fileprivate
 
 ### private
