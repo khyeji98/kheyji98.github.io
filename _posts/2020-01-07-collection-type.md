@@ -8,7 +8,7 @@ tags:
   - swift
 ---
 
-# 콜렉션 타입(Collection Type)
+## 콜렉션 타입(Collection Type)
 
 Swift Collection Types엔 Array, Set, Dictionary가 있다.   
 Array는 순서가 정해져 있으나, Set과 Dictionary는 순서가 정해져 있지 않다.
@@ -18,7 +18,7 @@ Array는 순서가 정해져 있으나, Set과 Dictionary는 순서가 정해져
  
 ***
   
-### Array
+## Array
 
 Array는 `Array<Type>`으로 작성하거나, 간단하게 `[Type]`으로 작성해 타입 추론할 수 있다.
 ```
@@ -69,7 +69,7 @@ var anyArray = [Any]() // Array로 자동 인식
 var anyArray: [Any] = []
 ```
 
-### Dictionary
+## Dictionary
 Dictionary는 `Dictionary<keyType, valueType>`로 작성하거나, 간단하게 `[keyType:valueType]`로 작성할 수 있다.   
 keyType은 딕셔너리의 key로 사용될 타입이고, valueType은 딕셔너리의 value로 사용될 타입이다.
 ```
@@ -104,6 +104,6 @@ var anyDictionary = [String:Any]()
 > Swift의 모든 타입(String, Int, Double, Bool)은 기본적으로 hashable하며, 이 모든 타입은 딕셔너리 키로 사용된다.   
 > 즉, 나만의 타입을 딕셔너리에 넣어 사용하고 싶다면 Swift 표준 라이브러리로부터 Hashable 프로토콜을 만들어 따라야 한다.
  
-### Set
+## Set
 
 
