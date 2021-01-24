@@ -104,7 +104,7 @@ internal 접근은 보통 모듈 내부에서 광역적으로 접근할 경우�
 ### fileprivate
  
 fileprivate 키워드는 **파일외부비공개 접근수준**으로 fileprivate 접근으로 정의된 요소는 **해당 요소가 구현된 소스파일 내부에서만** 접근할 수 있다.   
-때문에 
+때문에 주로 해당 소스파일 외부에서 접근하면 부작용이 생길 수 있는 경우에 사용한다.
 filiprivate 접근으로 정의된 요소를 같은 소스파일 내의 변수나 상수를 통해 접근해보자.
 ```
 fileprivate class FileprivateClass {
@@ -127,7 +127,23 @@ fileprivate let fileprivateInstance = FileprivateClass() // ok!
  
 ### private
  
-
+private 키워드는 **비공개 접근수준**으로 private 접근으로 정의된 요소는 **해당 요소를 정의하고 구현한 범위 내에서만** 사용할 수 있다.   
+한마디로 private 접근으로 지정된 요소는 같은 소스파일 내에서 구현된 다른 타입이나 기능에서도 사용할 수 없다.   
+ 
+그러나 private 접근으로 지정되어도 확장은 가능한데,
+```
+private class PrivateClass {
+    // code
+}
+ 
+extension PrivateClass {
+    // code
+}
+```
+이렇게 private 접근인 클래스여도 extension을 사용하면 확장 가능하다.   
+물론, 같은 소스파일 내에서만 가능하다.   
+ 
+그리고 private 역시 fileprivate처럼 다른 변수나 상수를 통해 접근하고 싶다면 앞에 private이나 fileprivate 키워드를 붙여줘야 한다.
  
 #### Reference)
  
