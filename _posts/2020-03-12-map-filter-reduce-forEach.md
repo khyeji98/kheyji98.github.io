@@ -7,8 +7,6 @@ picture_frame: shadow
 tags:
   - [swift]
 ---
-
-# 고차함수
  
 ### 고차함수란?
  
@@ -27,7 +25,7 @@ tags:
  
 각 함수들을 for문과 비교해 보면 이 이점들을 더 한눈에 알아볼 수 있을 것이다.
  
-### Map
+## Map
  
 Map은 데이터를 변형할 때 사용하는데, **기존 데이터를 변형**하여 새로운 콜렉션을 생성하는 함수로 **배열 내부 원소를 하나씩 mapping한다**고 할 수 있다.   
 각 요소의 값을 변경하거나 해당 결과들을 새로운 배열로 반환하고자 할 때 사용한다.
@@ -62,7 +60,7 @@ print(newNums)
 매우 간단한 예제임에도 불구하고 코드라인의 수가 차이난다.   
 물론 더 복잡하고 다양한 조건들이 추가되면 둘의 차이가 현저하게 느껴질 것이다.
  
-### Filter
+## Filter
  
 Filter는 데이터를 추출할 때 사용하는데, 기존 데이터에서 **조건에 맞게 내부의 값을 걸러** 새로운 콜렉션으로 반환한다.   
 map과 다른 점으로, Filter는 조건을 통해 내부의 값을 거르기 때문에 반드시 **Bool타입을 반환하는 함수를 전달인자로** 넣어야 한다.
@@ -98,7 +96,7 @@ print(evenNums) // [2, 4, 6, 8, 10]
 이렇게 감결한 filter에 비해 조금 더 복잡해진다.   
 아무래도 filter는 조건문이 추가되기 때문에 for문과의 차이가 map보다 더 잘 나타날 것이다.
  
-### Reduce
+## Reduce
  
 Reduce도 데이터를 결합, 즉 합치기 위해 사용된다.   
 말 그대로 기존 데이터에서 **내부의 값들을 결합**해 결합된 하나의 새로운 값을 반환하는 것이다.   
@@ -138,7 +136,7 @@ for num in nums {
 print(sumNum) // 55
 ```
  
-### forEach
+## forEach
  
 forEach는 위의 고차함수들과는 달리 데이터에 특정 행동을 하지는 않고 기존 데이저 **각각의 내부값에 접근만 한다.**   
 그래서 반환타입도 Void로 되어있다.   
@@ -157,7 +155,7 @@ forEach는 정말 for문과 뭐가 다른건지 나도 처음에 모르고 사�
  
 그런데 더 많은 차이점이 있었다.
  
-#### break
+### break
  
 ```
 var nums = [1, 2, 3, 4, 5]
@@ -179,11 +177,11 @@ for문에서는 break를 사용해 loop를 중단할 수 있으나, **forEach에
 forEach에 break를 입력하는 순간 이런 에러 메세지가 뜬다.
 <p style="text-align:center"><img width="398" alt="KakaoTalk_Photo_2021-01-19-16-06-39" src="https://user-images.githubusercontent.com/50580583/104999855-e634f780-5a70-11eb-8ba6-9ac7c7eede63.png"></p>
  
-#### continue
+### continue
  
 continue 또한 for문에서는 사용할 수 있으나 **forEach에서는 사용할 수 없다.**
  
-#### return
+### return
  
 return은 for문에서 사용할 수 없으나 **forEach에서는 사용할 수 있다.**   
 사용할 수는 있지만 신기하게 작동한다.
