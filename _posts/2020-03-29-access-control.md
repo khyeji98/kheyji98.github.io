@@ -46,14 +46,14 @@ public subscript
 ### oepn
  
 open 키워드는 **개방 접근수준**으로 접근제한이 가장 낮다.   
-open 접근은 클래스와 클래스의 멤버에만 사용할 수 있으며, open 접근으로 정의된 클래스는 정의된 모듈 밖의 다른 모듈에서도 상속할 수 있다.   
+open 접근은 클래스와 클래스의 멤버에만 지할 수 있으며, open 접근으로 정의된 클래스는 정의된 모듈 밖의 다른 모듈에서도 상속할 수 있다.   
 또한 open 접근으로 정의된 클래스의 멤버는 해당 멤버가 정의된 모듈 밖의 다른 모듈에서도 재정의할 수 있다.   
  
 클래스를 open 접근으로 정의한다는 것은 **해당 클래스를 다른 모듈에서도 부모클래스(super class)로 사용하겠다는 목적으로 정의된 것**이다.
  
 ### public
  
-public 키워드는 **공개 접근수준**으로 public 접근으로 정의된 요소는 어디서든 사용할 수 있다.   
+public 키워드는 **공개 접근수준**으로 public 접근으로 정의된 요소는 **어디서든** 사용할 수 있다.   
 public 접근은 open 접근과 비슷하지만 명확한 차이가 있다.
  
 #### open VS public
@@ -97,12 +97,38 @@ class SomeClass: PublicClass { // error!
  
 internal 키워드는 **내부 접근수준**으로 internal 접근으로 정의된 요소는 **정의된 해당 소스파일이 속한 모듈 어디에서든** 접근할 수 있다.   
 그러나 해당 모듈을 import한 외부 모듈에서는 접근할 수 없다. 즉, **모듈 외부에서는 사용이 일절 불가**하다는 것이다.   
-때문에 internal 접근은  모든 요소에 암묵적으로 지정하는 기본 접근레벨이다.          
+ 
+internal 접근은 보통 모듈 내부에서 광역적으로 접근할 경우에 사용하기 때문에, 모든 요소에 암묵적으로 지정하는 기본 접근레벨이다.   
+그리고 internal 접근은 암묵적으로 지정하는 기본 접근구준이므로 `internal` 키워드를 생략할 수 있다.
  
 ### fileprivate
-
+ 
+fileprivate 키워드는 **파일외부비공개 접근수준**으로 fileprivate 접근으로 정의된 요소는 **해당 요소가 구현된 소스파일 내부에서만** 접근할 수 있다.   
+때문에 
+filiprivate 접근으로 정의된 요소를 같은 소스파일 내의 변수나 상수를 통해 접근해보자.
+```
+fileprivate class FileprivateClass {
+    // code
+}
+ 
+var fileprivateInstance = FileprivateClass() // error!
+```
+분명 같은 소스파일 내에서 접근한건데 왜 에러가 날까?   
+타입의 접근수준이 fileprivate 접근이기 때문에 **접근하는 변수나 상수도 private이나 fileprivate으로 선언되어야 한다.**
+```
+fileprivate class FileprivateClass {
+    // code
+}
+ 
+private var privateInstance = FileprivateClass() // ok!
+fileprivate let fileprivateInstance = FileprivateClass() // ok!
+```
+이렇게 private이나 filepreivate 접근으로 지정해준다면 변수나 상수 모두 fileprivate으로 정의된 요소에 접근할 수 있다.
+ 
 ### private
+ 
 
+ 
 #### Reference)
  
 [https://zeddios.tistory.com/383](https://zeddios.tistory.com/383)   
