@@ -8,7 +8,7 @@ tags:
   - [swift]
 ---
  
-# Funtion VS Method
+## Funtion VS Method
  
 함수와 메소드, 대충 의미는 알겠지만 차이를 모르고 커뮤니케이션할 때 사용해왔다.   
  
@@ -37,7 +37,7 @@ Command Line Tool에서는 클래스를 만들 일이 드물기 적기 때문에
  
 그렇다면 이제 함수와 메소드의 차이도 명확히 알았으니 둘에 대해 더 자세히 알아보자.
  
-# Function
+## Function
  
 ### 기본 함수
 
@@ -158,7 +158,7 @@ let sortedNum = num.sorted(by: <)
     
 > 클로저는 많이 사용되고 중요한 파트이기 때문에 공부한 기록을 따로 포스팅할 예정이다.
  
-# Method
+## Method
  
 앞서 말한 것처럼 메소드는 클래스, 구조체, 열거형 타입 내에서 정의된 함수를 말한다.   
 Swift에서 구조체와 열거형을 정의할 수 있다는 것은 Swift VS C와 Objective-C로 구분지을 수 있는 중요한 차이점이라고 한다.   
