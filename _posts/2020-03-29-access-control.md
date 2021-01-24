@@ -36,9 +36,25 @@ public subscript
  
 **접근제어는 모듈 및 소스파일을 기반**으로 하는데, 모듈은 프레임워크나 앱 번들을 말하는데 우리가 UI요소들을 사용하기 위해 import하는 UIKit도 하나의 모듈이다. `import` 키워드를 사용하는 것은 모두 모듈이라고 볼 수 있다.   
 소스파일은 말 그대로 모듈 내의 단일 스위프트 소스 코드 파일, 단일 파일을 말한다.   
-즉,
-
+즉, 이렇게 **모듈별, 파일별로 접근제어를 제공**한다는 것이다.
  
+## 접근제어 레벨(Access Level)
+ 
+접근제어는 접근수준 키워드를 통해 구현하며, 접근레벨 키워드에는 open, public, internal, fileprivate, private가 있다.   
+접근이 가장 높은, 접근 제한이 가장 낮은 키워드부터 설명을 할 것이다.
+ 
+### oepn
+ 
+open 키워드의 접근 
+ 
+### public
+
+### internal
+
+### fileprivate
+
+### private
+
 #### Reference)
  
 [https://zeddios.tistory.com/383](https://zeddios.tistory.com/383)   
