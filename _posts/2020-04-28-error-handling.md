@@ -8,7 +8,7 @@ tags:
   - [swift]
 ---
  
-# 에러 처리(Error Handling)
+## 에러 처리란?
 
 ### do, try, catch
 
