@@ -48,7 +48,8 @@ throw는 말 그대로 에러를 던진다는 것을 의미하는데, 에러가 
 ```
 func canThrowErrors() throws -> String
 ```
-이렇게 
+이렇게 함수가 반환타입을 지정할 경우에는 `throws` 키워드를 화살표(->) 앞에 명시한다.   
+물론 
  
 ### do-catch
 
