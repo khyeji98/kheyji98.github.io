@@ -35,13 +35,22 @@ throw
  
 ## 에러 처리
  
-스위프트에는 
+스위프트에는 에러를 처리하는 4가지 방법이 있다.
  
-### do
-
-### try
-
-### catch
+- 함수, 메소드, 
+- do-catch를 통해 에러 처리
+- 에러를 선택적 값으로 처리
+- 에러가 발생하지 않은 것이라고 주장
+ 
+### throw
+ 
+throw는 말 그대로 에러를 던진다는 것을 의미하는데, 에러가 발생하면 그대로 발생한 에러를 던지고 함수 실행은 그대로 종료한다.
+```
+func canThrowErrors() throws -> String
+```
+이렇게 
+ 
+### do-catch
 
 ### assert/assertionfailure
 
