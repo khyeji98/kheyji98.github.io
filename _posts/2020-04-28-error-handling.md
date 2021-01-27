@@ -196,21 +196,63 @@ func fetchData() -> Data? {
     
 ### try!
  
-`try!`
-그리고 throws 처리된 함수일지라도 때에 따라 에러가 발생하지 않을 수 있다.   
-이런 경우엔 try! 처리를 해도 된다.
+`try!`는 함수나 메소드에서 **에러가 발생하지 않을 것을 확신할 때** 사용한다.   
+하지만 에러가 발생한다면 **런타임 에러**가 발생하게 된다.
 ```
 let photo = try! loadImage(atPath: "./Resources/John Appleseed.jpg")
 ```
-loadImage(atPath:) 함수는 지정된 경로에서 이미지 리소스를 로드하거나 이미지를 로드할 수 없는 경우 에러를 발생시키는 함수이다.   
-
+에러가 발생하지 않는 다는 확신이 들지 않는다면 사용하지 않는 것을 권장한다.
  
-### assert/assertionfailure
+### defer
+ 
+defer문을 코드 블럭 내에서 사용하면 **해당 코드 블럭이 종료되기 직전**에 defer문이 실행된다.   
+return, break나 강제로 벗어나게 되는 경우에도 실행되며, 주로 열었던 파일이나 소켓을 닫거나 수동으로 직접 할당한 메모리를 정리하기 위해 사용된다.
+```
+func processFile(filename: String) throws {
+    if exists(filename) {
+        let file = open(filename)
+        defer {
+            close(file)
+        }
+        while let line = try file.readline() {
+            // code
+        }
+        // if문 코드 블럭이 모두 실행되고 defer 실행
+    }
+}
+```
+때문에 defer는 이렇게 에러 처리 외에도 사용한다.
+ 
+### Assertion
+ 
+Assertion은 코드가 실행될 때 반드시 만족해야 하는 조건을 코드 상에 명시해 놓는 것이다.   
+때문에 코드가 정상적으로 실행되면 문제가 없는 것이고, Assertion을 통해 에러가 발생한다면 조건에 부합되지 않는 부분이 있다는 것이기 때문에 디버깅에 좋은 자료가 된다.
+ 
+#### assert
+ 
+assert문은 디버깅 모드에서만 작동하기 때문에 모두 조건에 충족되는지 확인하기 위해 사용한다.   
+파라미터에는 condition, message, file, line이 있는데,
+ 
+- condition : 충족되는지 확인할 조건 코드
+- message : condition이 false를 반환할 때 출력되는 String타입 메세지
+- file : assertion 실패시 메세지와 함께 출력되는 파일 이름(default: assert가 호출된 파일명)
+- line : assertion 실패시 메세지와 함께 출력되는 코드 라인 번호(default: aasert가 호출된 코드 라인 번호)
+ 
+```
+func someFunction(value: Int) {
+  assert(value > 0, "value must bigger than 0")
+}
+```
+예제를 보면
+```
+ 
+#### precondition
 
-### precondition/preconditionfailure
 
-### fetal error
+
+#### fetal error
  
 #### Reference)
  
-[https://gwangyonglee.tistory.com/52](https://gwangyonglee.tistory.com/52)
+[https://gwangyonglee.tistory.com/52](https://gwangyonglee.tistory.com/52)   
+[http://seorenn.blogspot.com/2016/05/swift-assertion.html](http://seorenn.blogspot.com/2016/05/swift-assertion.html)
