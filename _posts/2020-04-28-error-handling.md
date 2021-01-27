@@ -230,25 +230,38 @@ Assertion은 코드가 실행될 때 반드시 만족해야 하는 조건을 코
  
 #### assert
  
-assert문은 디버깅 모드에서만 작동하기 때문에 모두 조건에 충족되는지 확인하기 위해 사용한다.   
+assert문은 **디버깅 모드에서만 작동**하기 때문에 모두 조건에 충족되는지 확인하기 위해 사용한다.   
 파라미터에는 condition, message, file, line이 있는데,
  
 - condition : 충족되는지 확인할 조건 코드
 - message : condition이 false를 반환할 때 출력되는 String타입 메세지
 - file : assertion 실패시 메세지와 함께 출력되는 파일 이름(default: assert가 호출된 파일명)
-- line : assertion 실패시 메세지와 함께 출력되는 코드 라인 번호(default: aasert가 호출된 코드 라인 번호)
+- line : assertion 실패시 메세지와 함께 출력되는 코드 라인 번호(default: assert가 호출된 코드 라인 번호)
  
 ```
 func someFunction(value: Int) {
   assert(value > 0, "value must bigger than 0")
 }
 ```
-예제를 보면
-```
+예제를 보면 value가 반드시 0보다 큰 수이어야 하고, 만약 0 이하라면 message 파라미터에 입력한 메세지가 출력된다.   
+ 
+> 참고로, assert문은 디버깅 모드이기 때문에 release build시에는 사용되지 않아 아무런 영향을 끼치지 않는다.
  
 #### precondition
-
-
+ 
+precondition문은 assert문과 동일한 역할을 하며 사용법, 파라미터 역시 assert문과 같다.   
+그러나 명확한 차이가 있는데, precondition은 assert문과 달리 **release build 시에도 사용된다.**   
+    
+    
+만약 최적화 플래그를 디버그용이 아닌, 릴리즈용으로 변경하고 빌드했을 때 확인을 assert문으로 처리한다면 에러가 나지 않아 확인하고자 하는 조건이 정상적으로 확인이 된건지 안된건지 알 수 없다.   
+그러나 precondition문으로 처리한다면 디버깅 모드일 때와 동일하게 앱이 비정상 종료되고 에러가 발생한 위치를 정확하게 출력한다.   
+    
+    
+**앱을 릴리즈 하기 전에 assert와 precondition을 적절히 잘 써야 한다는 것을 알 수 있다.**
+    
+    
+assertFailure문과 preconditionFailure문은 assert문과 precondition문을 통해 에러가 발생한 것처럼 작동하는 것이다.   
+한마디로,
 
 #### fetal error
  
