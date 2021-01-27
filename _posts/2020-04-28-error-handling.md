@@ -240,7 +240,7 @@ assert문은 **디버깅 모드에서만 작동**하기 때문에 모두 조건�
  
 ```
 func someFunction(value: Int) {
-  assert(value > 0, "value must bigger than 0")
+    assert(value > 0, "value must bigger than 0")
 }
 ```
 예제를 보면 value가 반드시 0보다 큰 수이어야 하고, 만약 0 이하라면 message 파라미터에 입력한 메세지가 출력된다.   
@@ -257,13 +257,28 @@ precondition문은 assert문과 동일한 역할을 하며 사용법, 파라미�
 그러나 precondition문으로 처리한다면 디버깅 모드일 때와 동일하게 앱이 비정상 종료되고 에러가 발생한 위치를 정확하게 출력한다.   
     
     
-**앱을 릴리즈 하기 전에 assert와 precondition을 적절히 잘 써야 한다는 것을 알 수 있다.**
+**즉 assert문은 개발자의 실수를 추적할 때 적함하고, precondition문은 외부 요인에 의한 에러를 추적할 때 적합하다.**
+**또한, 앱을 릴리즈 하기 전에 assert와 precondition을 적절히 잘 써야 한다는 것을 알 수 있다.**
     
     
 assertFailure문과 preconditionFailure문은 assert문과 precondition문을 통해 에러가 발생한 것처럼 작동하는 것이다.   
-한마디로,
-
+한마디로, 파라미터에 condition이 없고 그냥 무조건 Assertion을 통해 에러가 발생한 것처럼 앱이 비정상 종료가 된다는 것이다.   
+이런 것을 왜 사용할까?
+```
+switch some {
+case case1:
+    // code1
+case case2:
+    // code2
+default:
+    assertionFailure("some must be case1 or case2")
+}
+```
+예를 들어 이렇게 some이 default로 빠지면 안될 때 assertFailure를 통해 에러를 발생시키는 것이다.
+ 
 #### fetal error
+ 
+fetal error는 호출 
  
 #### Reference)
  
