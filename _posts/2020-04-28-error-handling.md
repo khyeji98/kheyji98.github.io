@@ -163,7 +163,8 @@ do {
  
 ### try? try!
  
-`try?`와 `try!`를 사용한 에러 처리는 **에러를 선택적 값으로 변환**해 처리하는 방법인데, 해당 방법은 에러를 던지는 함수가 반환값이 있을 때 사용할 수 있다.
+`try?`와 `try!`를 사용한 에러 처리는 **에러를 선택적 값으로 변환**해 처리하는 방법인데, 옵셔널과 유사한 방식이라고 할 수 있다.   
+해당 방법은 **에러를 던지는 함수가 반환값이 있을 때** 사용할 수 있다.
 ```
 func someThrowingFunction() throws -> Int {
     // code
@@ -171,7 +172,8 @@ func someThrowingFunction() throws -> Int {
 
 let x = try? someThrowingFunction()
 ```
-someThrowingFunction은 Int값을 
+someThrowingFunction은 Int값을 반환하는 함수인데, throws 처리된 함수이다.   
+그리고 x라는 상수는 해당 함수가 반환하는 값을 할당받을 상수로 someThrowingFunction이 에러를 
  
 ### assert/assertionfailure
 
