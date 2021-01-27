@@ -278,9 +278,51 @@ default:
  
 #### fetal error
  
-fetal error는 호출 
+fetal error는 호출 즉시 에러가 발생해 아예 프로세스를 죽인다.   
+이렇게 바로 프로세스 죽이는 코드를 언제 사용하느냐, **에러가 치명적**이거나 반환값이 있어야 할 메소드에서 **반환할 값이 없을 때** 사용한다.   
+때문에 흔하게 사용하는 코드는 아니다.
+```
+override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? TableViewCell else {
+        fatalError("The dequeued cell is not an instance of TableViewCell.")
+    }
+    return cell
+}
+```
+ 
+### guard
+ 
+guard문을 통한 에러 처리 방법도 있는데 guard문은 알다시피 옵셔널일 경우나 조건에 맞지 않는 경우의 코드만 작성하며, 옵셔널이거나 조건에 맞지 않다면 특정 실행 구문을 **아주 빠르게 종료**한다.
+이 점을 이용해 에러를 처리하는데, guard를 사용해 옵셔널 뿐만 아니라 단순 조건 을 통해 else절로 넘길 수 있다.
+```
+func functionWithGuard(age: Int?) {
+ 
+    guard let unwrappedAge = age,
+        unwrappedAge < 130,
+        unwrappedAge >= 0 else {
+        print("나이값 입력이 잘못되었습니다")
+        return
+    }
+ 
+    print("당신의 나이는 \(unwrappedAge)세입니다")
+}
+ 
+var count = 1
+ 
+while true {
+    guard count < 3 else {
+        break
+    }
+    print(count)
+    count += 1
+}
+// 1
+// 2
+```
+또한 guard문에서 else절에는 특정 코드 블럭을 종료하는 지시어로 return, break 등이 꼭 있어야 한다.
  
 #### Reference)
  
+[https://blog.yagom.net/561/](https://blog.yagom.net/561/)   
 [https://gwangyonglee.tistory.com/52](https://gwangyonglee.tistory.com/52)   
 [http://seorenn.blogspot.com/2016/05/swift-assertion.html](http://seorenn.blogspot.com/2016/05/swift-assertion.html)
