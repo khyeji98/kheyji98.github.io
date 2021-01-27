@@ -119,11 +119,59 @@ struct PurchasedSnack {
  
 ## 에러 처리
  
-지금까지 
+지금까지 throw, throws, try를 사용한 에러 발생과 던지기에 대해 공부했다면, 이젠 던져진 에러를 어떻게 처리할지에 대해 알아볼 것이다.
  
 ### do-catch
  
-지금까지 에러 발생과 
+**do**절 안에는 에러가 발생할 때 throw하겠다고 지정한 함수를 `try` 키워드와 함께 호출하고, **catch**절에서 그룹화된 에러 케이스들을 조건문처럼 나열한다.
+```
+do {
+    try 에러 발생시 던질 함수 호출
+    // 에러가 발생하지 않았을 때 실행될 코드
+} catch 에러 케이스1 {
+    // error handling code
+} catch 에러 케이스2 where 조건 {
+    // error handling code
+} catch 에러 케이스3, 에러 케이스4 where 조건 {
+    // error handling code
+} catch {
+    // 그룹화된 에러 케이스 외에 발생한 error handling code
+}
+```
+do-catch문의 기본 형태는 이렇게 되어 있다.   
+조건에 부합할 때 발생한 에러 케이스를 처리할 수도 있고, 두 개 이상의 에러 케이스를 쉼표(,)를 사용해 묶을 수 있다.
+```
+var vendingMachine = VendingMachine()
+vendingMachine.coinsDeposited = 8
+ 
+do {
+    try buyFavoriteSnack(person: "Alice", vendingMachine: vendingMachine)
+    print("Success! Yum.")
+} catch VendingMachineError.invalidSelection {
+    print("Invalid Selection.")
+} catch VendingMachineError.outOfStock {
+    print("Out of Stock.")
+} catch VendingMachineError.insufficientFunds(let coinsNeeded) {
+    print("Insufficient funds. Please insert an additional \(coinsNeeded) coins.")
+} catch {
+    print("Unexpected error: \(error).")
+}
+// "Insufficient funds. Please insert an additional 2 coins."
+```
+아까 열거형을 통해 그룹화한 에러 케이스를 적용해 보자면 이렇게 작성할 수 있다.   
+그리고 코인 10개가 필요한데 8개만 넣었으므로 코인이 부족할 때 발생하는 `VendingMAchineError.insufficientFunds(coinNeeded:)` 에러 케이스에 해당한 것이고, 해당 케이스로 catch되었을 때의 코드가 실행된 것이다.
+ 
+### try? try!
+ 
+`try?`와 `try!`를 사용한 에러 처리는 **에러를 선택적 값으로 변환**해 처리하는 방법인데, 해당 방법은 에러를 던지는 함수가 반환값이 있을 때 사용할 수 있다.
+```
+func someThrowingFunction() throws -> Int {
+    // code
+}
+
+let x = try? someThrowingFunction()
+```
+someThrowingFunction은 Int값을 
  
 ### assert/assertionfailure
 
