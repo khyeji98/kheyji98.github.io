@@ -161,9 +161,9 @@ do {
 아까 열거형을 통해 그룹화한 에러 케이스를 적용해 보자면 이렇게 작성할 수 있다.   
 그리고 코인 10개가 필요한데 8개만 넣었으므로 코인이 부족할 때 발생하는 `VendingMAchineError.insufficientFunds(coinNeeded:)` 에러 케이스에 해당한 것이고, 해당 케이스로 catch되었을 때의 코드가 실행된 것이다.
  
-### try? try!
+### try?
  
-`try?`와 `try!`를 사용한 에러 처리는 **에러를 선택적 값으로 변환**해 처리하는 방법인데, 옵셔널과 유사한 방식이라고 할 수 있다.   
+`try?`를 사용한 에러 처리는 **에러를 선택적 값으로 변환**해 처리하는 방법인데, 옵셔널과 유사한 방식이라고 할 수 있다.   
 해당 방법은 **에러를 던지는 함수가 반환값이 있을 때** 사용할 수 있다.
 ```
 func someThrowingFunction() throws -> Int {
@@ -173,7 +173,37 @@ func someThrowingFunction() throws -> Int {
 let x = try? someThrowingFunction()
 ```
 someThrowingFunction은 Int값을 반환하는 함수인데, throws 처리된 함수이다.   
-그리고 x라는 상수는 해당 함수가 반환하는 값을 할당받을 상수로 someThrowingFunction이 에러를 
+그리고 x라는 상수는 해당 함수가 반환하는 값을 할당받을 상수로 someThrowingFunction이 에러를 발생시키면 옵셔널 값, 즉 **nil을 할당**한다는 것이다.
+```
+let y: Int?
+ 
+do {
+    y = try someThrowingFunction()
+} catch {
+    y = nil
+}
+```
+`let x = try? someThrowingFunction()` 해당 코드라인은 위와 같은 코드를 간결하게 작성한 것이다.   
+에러 케이스가 없는 것을 보아, 에러가 발생하면 무조건 nil을 할당한다는 것을 알 수 있다.
+```
+func fetchData() -> Data? {
+    if let data = try? fetchDataFromDisk() { return data }
+    if let data = try? fetchDataFromServer() { return data }
+    return nil
+}
+```
+이렇게 if-let과 함께 사용하면 더 활용도있게 사용할 수 있다.
+    
+### try!
+ 
+`try!`
+그리고 throws 처리된 함수일지라도 때에 따라 에러가 발생하지 않을 수 있다.   
+이런 경우엔 try! 처리를 해도 된다.
+```
+let photo = try! loadImage(atPath: "./Resources/John Appleseed.jpg")
+```
+loadImage(atPath:) 함수는 지정된 경로에서 이미지 리소스를 로드하거나 이미지를 로드할 수 없는 경우 에러를 발생시키는 함수이다.   
+
  
 ### assert/assertionfailure
 
