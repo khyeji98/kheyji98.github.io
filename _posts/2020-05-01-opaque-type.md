@@ -143,8 +143,30 @@ print(trapezoid.draw())
 // **
 // *
 ```
-makeTrapezoid라는 함수는
+makeTrapezoid라는 함수는 반환타입이 `some Shape`으로 Shape 프로토콜을 채택하는 타입은 모두 반환값으로 올 수 있다는 의미의 **불명확 타입**이다.   
+때문에 해당 함수는 실제 반환 타입을 노출하지 않고도 사다리꼴 도형을 반환할 수 있다.   
+예제를 보면 해당 함수의 실제 반환 타입은 JoinedShape이다.   
+지금은 한개의 사각형을 통해 사다리꼴을 만들었지만, **반환 타입을 변경하지 않고** 다른 방식으로 사다리꼴을 만들도록 함수를 수정할 수 있다.
+ 
+또한 불명확 반환 타입을 제네릭과 함께 사용할 수도 있다.
 ```
+func flip<T: Shape>(_ shape: T) -> some Shape {
+    return FlippedShape(shape: shape)
+}
+ 
+func join<T: Shape, U: Shape>(_ top: T, _ bottom: U) -> some Shape {
+    return JoinedShape(top: top, bottom: bottom)
+}
+let opaqueJoinedTriangles = join(smallTriangle, flip(smallTriangle))
+print(opaqueJoinedTriangles.draw())
+// *
+// **
+// ***
+// ***
+// **
+// *
+```
+이렇게 
  
 #### Reference)
  
