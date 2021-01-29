@@ -110,6 +110,8 @@ JoinedShape 역시 Shape을 채택하고 있기 때문에 draw 메소드를 구�
  
 ## 불명확 타입 리턴하기
  
-
+불명확 
  
 #### Reference)
+ 
+[https://wlaxhrl.tistory.com/82](https://wlaxhrl.tistory.com/82)
