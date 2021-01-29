@@ -166,7 +166,24 @@ print(opaqueJoinedTriangles.draw())
 // **
 // *
 ```
-이렇게 
+이렇게 Shape을 채택하고 있는 모든 타입들을 파라미터로 받으면 해당 값을 반환 값의 프로퍼티에 바로 할당할 수 있다.   
+해당 예제를 보면 아까 **joinedTriangles**와 동일하다고 볼 수 있을 것이다.   
+그러나 flip과 join 함수는 반환타입을 `some Shape`으로 한번 더 불명확하게 했기 때문에 엄연하게 다르다.
+    
+    
+반환 타입이 불명확 타입인 함수에는 제약이 있다.   
+바로 **언제나 같은 타입을 반환해야 한다**는 것이다.   
+ 
+```
+func invalidFlip<T: Shape>(_ shape: T) -> some Shape {
+    if shape is Square {
+        return shape // Error: return types don't match 
+    }
+    
+    return FlippedShape(shape: shape) // Error: return types don't match 
+}
+```
+만약 
  
 #### Reference)
  
