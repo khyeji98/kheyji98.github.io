@@ -183,7 +183,26 @@ func invalidFlip<T: Shape>(_ shape: T) -> some Shape {
     return FlippedShape(shape: shape) // Error: return types don't match 
 }
 ```
-만약 
+만약 이런 함수가 있다면 `some Shape`을 통해 반환 타입이 불명확 타입임을 명시했고, 이때 해당 함수는 오직 하나의 타입을 반환해야 한다.   
+그러나 if문을 사용해 조건에 해당하면 파라미터에 할당된 타입이, 조건에 해당되지 않는다면 FlippedShape 타입이 반환된다고 작성해 놓았다.   
+해당 함수는 요구사항을 지키지 않았기 때문에 유효하지 않은 코드이며, 해당 함수를 정상적으로 작동시키려면 FlippedShape 내부로 옮겨야 한다.
+```
+struct FlippedShape<T: Shape>: Shape { 
+    var shape: T
+    
+    func draw() -> String {
+    
+        if shape is Square {
+            return shape.draw()
+        }
+        
+        let lines = shape.draw().split(separator: "\n") 
+        
+        return lines.reversed().joined(separator: "\n")
+    }
+}
+```
+이렇게 FlippedShape 내부로 함수를 옮기면
  
 #### Reference)
  
