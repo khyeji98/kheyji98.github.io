@@ -110,7 +110,41 @@ JoinedShape 역시 Shape을 채택하고 있기 때문에 draw 메소드를 구�
  
 ## 불명확 타입 리턴하기
  
-불명확 
+불명확 타입은 함수의 반환타입으로도 올 수 있다.   
+```
+struct Square: Shape { 
+    var size: Int
+    
+    func draw() -> String {
+        let line = String(repeating: "*", count: size)
+        let result = Array<String>(repeating: line, count: size)
+        return result.joined(separator: "\n")
+    }
+}
+ 
+func makeTrapezoid() -> some Shape {
+    let top = Triangle(size: 2)
+    let middle = Square(size: 2)
+    let bottom = FlippedShape(shape: top)
+    
+    let trapezoid = JoinedShape( 
+        top: top,
+        bottom: JoinedShape(top: middle, bottom: bottom)
+    )
+    return trapezoid 
+}
+ 
+let trapezoid = makeTrapezoid()
+print(trapezoid.draw())
+// *
+// **
+// **
+// **
+// **
+// *
+```
+makeTrapezoid라는 함수는
+```
  
 #### Reference)
  
