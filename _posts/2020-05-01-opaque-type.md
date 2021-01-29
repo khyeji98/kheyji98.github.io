@@ -27,6 +27,7 @@ func opaqueReturnTypeFunc(_ parameter: Int) -> some Hashable {
  
 ## 불명확 타입으로 해결할 수 있는 문제
  
+공식 문서에 올라온 아스키 아트 모듈 예제를 통해 불명확 타입을 이해해보자.
 ```
 protocol Shape { 
     func draw() -> String
@@ -50,6 +51,51 @@ print(smallTriangle.draw())
 // * 
 // ** 
 // ***
+```
+먼저 Shape 프로토콜을 정의한 후, Shape을 채택한 Triangle이라는 구조체를 만들고 Shape에서 정의된 draw 메소드를 Triangle에서 구현한다.   
+구현한 코드를 실행하기 위해 **smallTriangle**이라는 상수에 Triangle 구조체를 초기화해주는데, 초기화시 size 프로퍼티의 초기값에 3을 할당한다.   
+즉, **smallTriangle**은 size 프로퍼티의 값이 3인 Triangle 구조체 타입이다.   
+그리고 smallTriangle을 통해 draw 메소드를 실행해보면 계단형 삼각형이 아스키 아트로 출력된다.
+```
+struct FlippedShape<T: Shape>: Shape { 
+    var shape: T
+    func draw() -> String { 
+        let lines = shape.draw().split(separator: "\n") 
+        return lines.reversed().joined(separator: "\n") 
+    } 
+} 
+ 
+let flippedTriangle = FlippedShape(shape: smallTriangle) 
+print(flippedTriangle.draw())
+// *** 
+// **
+// *
+```
+이번엔 FlippedShape이라는 구조체를 정의했는데, Triangle처럼 Shape을 채택하고 있다.   
+FlippedShape의 shape 프로퍼티는 **제네릭**을 사용해 **타입 프로퍼티** 타입으로 정의되었고, `<T: Shape>` 이 부분을 보면 FlippedShape에서 타입 프로퍼티는 **Shape을 채택하는 타입**만이 해당된다는 것을 알 수 있다.   
+또한 해당 구조체에서 구현된 draw 메소드는 shape의 값을 반대로 출력한다.   
+    
+    
+또한 해당 구조체에서 구현된 draw 메소드는 shape의 값을 반대로 출력한다.   
+해당 구조체를 **flippedTriangle**이라는 상수에 초기화했으며 shape의 초기값은 **smallTriangle**이고, shape에는 Shape을 채택하는 값만이 할당될 수 있기 때문에 Triangle 타입인 **smallTriangle**은 해당된다.   
+그리고 초기값 그대로 `flippedTriangle.draw()` 해당 코드의 반환값을 출력하면 `smallTriangle.draw()`에서 출력된 아스키 아트와 반대로 출력된다.
+```
+struct JoinedShape<T: Shape, U: Shape>: Shape {
+    var top: T
+    var bottom: U
+    
+    func draw() -> String { 
+        return top.draw() + "\n" + bottom.draw() 
+    }
+} 
+ 
+let joinedTriangles = JoinedShape(top: smallTriangle, bottom: flippedTriangle) print(joinedTriangles.draw())
+// *
+// **
+// ***
+// ***
+// **
+// *
 ```
 
  
