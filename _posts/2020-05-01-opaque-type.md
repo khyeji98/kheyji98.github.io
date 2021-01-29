@@ -89,7 +89,8 @@ struct JoinedShape<T: Shape, U: Shape>: Shape {
     }
 } 
  
-let joinedTriangles = JoinedShape(top: smallTriangle, bottom: flippedTriangle) print(joinedTriangles.draw())
+let joinedTriangles = JoinedShape(top: smallTriangle, bottom: flippedTriangle) 
+print(joinedTriangles.draw())
 // *
 // **
 // ***
@@ -97,6 +98,12 @@ let joinedTriangles = JoinedShape(top: smallTriangle, bottom: flippedTriangle) p
 // **
 // *
 ```
-
- 
+JoinedShape이라는 구조체는 프로퍼티가 두개이며, 두 프로퍼티 모두 타입 프로퍼티로 Shape을 채택하는 타입만이 올 수 있다.   
+JoinedShape 역시 Shape을 채택하고 있기 때문에 draw 메소드를 구현했다.   
+지금까지의 예제와 마찬가지로 joinedTriangles라는 상수에 JoinedShape을 초기화했고, top과 bottom 프로퍼티에 각각 **smallTriangle**과 **flippedTriangle**을 초기값으로 할당해줬다.   
+그리고 `joinedTriangles.draw()`의 반환값을 출력해보면 **smallTriangle**과  **flippedTriangle**이 합쳐진 아스키 아트를 볼 수 있다.
+    
+    
+이런식으로 
+  
 #### Reference)
