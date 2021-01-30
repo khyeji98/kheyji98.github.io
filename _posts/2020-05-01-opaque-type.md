@@ -249,8 +249,40 @@ Shape 프로토콜의 요구조건에 == 연사자가 포함되어 있지 않기
 **즉, 반환 타입이 프로토콜 타입일 경우 해당 프로토콜을 준수하는 모든 타입을 반환할 수 있는 유연성을 얻을 수 있다.   
 그러나 유연성을 얻기 위해서는 반환값으로 할 수 있는 몇몇 작업들을 포기해야 한다.**
  
-반환 
+반환 타입이 프로토콜 타입일 경우 발생하는 또 다른 문제는 중첩이 불가능하다는 점이다.   
+protoFlip에서 반환된 값은 Shape을 준수하지 않는다고 보기 때문이다.   
+반환 타입인 Shape 프로토콜 타입 그 자체는 프로토콜 Shape을 준수하지 않는다.   
+즉, **반환 타입이 프로토콜 타입이고 반환값은 해당 프로토콜을 준수하지 않는다**고 보기 때문에 반환값에 해당 프로토콜 타입이 파라미터인 다른 변환을 적용할 수 없다.   
+한마디로 `protoFlip(protoFlip(samllTriangle))` 해당 코드는 작성될 수 없는 코드이다.
+    
+    
+반면에 불명확 타입은 프로토콜 타입과는 달리 타입의 아이덴티티를 보존한다. 
+```
+protocol Generic {
+    associcatedtype Item
+    var count : Int { get }
+    subscript(i: Int) -> Item { get }
+}
+ 
+extension Array: Container {  }
+```
+프로토콜이 연관 타입을 갖고 있기 때문에 Container 프로토콜을 반환 타입으로 사용할 수 없는 상황이다.   
+심지어 연관 타입을 함수 본체 외부에서 추정할 수 없기 때문에 제네릭의 제한 조건 `where` 키워드로도 사용할 수 없다.
+```
+// Error: Protocol with associated types can't be used as a return type.
+func makeProtocolContainer<T>(item: T) -> Container {
+    return [item]
+}
+ 
+// Error: Not enough information to infer C.
+func makeProtocolContainer<T, C: Container>(item: T) -> C {
+    return [item]
+}
+```
+그러나 만약 반환 타입으로 `some Container`라는 불명확 타입을 사용하면 바람직한 API를 만들 수 있다.   
+some Container 값을 
  
 #### Reference)
  
-[https://wlaxhrl.tistory.com/82](https://wlaxhrl.tistory.com/82)
+[https://wlaxhrl.tistory.com/82](https://wlaxhrl.tistory.com/82)   
+[https://soooprmx.com/archives/11092](https://soooprmx.com/archives/11092)
