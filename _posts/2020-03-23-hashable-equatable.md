@@ -1,7 +1,7 @@
 ---
 comments: true
 title: [Swift) Hashable VS Equatable]
-key: 202003231
+key: 202003232
 modify_date: 2020-05-11
 picture_frame: shadow
 tags:
@@ -14,5 +14,7 @@ tags:
 ## Equqtable
 
 ## Hashable VS Equatable
+
+#### Hashable은 무엇이고, Equatable을 왜 상속해야 하는지 설명하시오.
 
 #### Reference)
