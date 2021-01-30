@@ -117,7 +117,7 @@ var stringBox: StructBox<String> = StructBox(items: ["A", "B"])
  
 - **제네릭의 활용**
  
- : 제닉과 연관값 기능을 통해 보다 유연한 대처를 할 수 있어 강력해졌다.
+ : 제네릭과 연관값 기능을 통해 보다 유연한 대처를 할 수 있어 강력해졌다.
  
 #### Reference)
  
