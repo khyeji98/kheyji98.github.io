@@ -191,7 +191,7 @@ struct FlippedShape<T: Shape>: Shape {
     var shape: T
     
     func draw() -> String {
-    
+        // invalidFlip 함수에 작성됐던 코드
         if shape is Square {
             return shape.draw()
         }
@@ -202,7 +202,41 @@ struct FlippedShape<T: Shape>: Shape {
     }
 }
 ```
-이렇게 FlippedShape 내부로 함수를 옮기면
+이렇게 FlippedShape 내부로 함수를 옮기면 draw 메소드는 반환 타입이 불명확 타입이 아니기 때문에 제약도 없다.
+```
+func invalidFlip<T: Shape>(_ shape: T) -> some Shape {
+    // ...
+    return FlippedShape(shape: shap)
+}
+```
+그리고 이제 남아있는 코드를 보면 조건문에 해당되지 않았을 때 FlippedShape 타입으로 반환된다는 것인데 코드상으로는 어차피 shape 파라미터에 값이 할당되는 것이고, 그 말은 즉 FlippedShape 구조체를 초기화할 때 shape에 초기값을 할당해주는 것과 같기 때문에 draw 메소드에 따로 코드를 추가하지 않아도 draw 내에서 조건에 해당하지 않을 경우 shape 파라미터를 사용해 코드가 실행된다.   
+    
+    
+정리하자면,   
+**FlippedShape의 shape에 값을 할당하면서 FlippedShape 타입을 반환하는 것 = FlippedShape 초기화시 shape에 초기값  할당**   
+이렇게 된다는 것이다.
+ 
+## 불명확 타입 VS 프로토콜 타입
+ 
+불명확 타입을 반환하는 것은 프로토콜 타입을 반환하는 것과 매우 유사해 보이지만, 타입의 아이덴티티 보존에 대해 차이가 있다.   
+**불명확 타입이 반환 타입**일 땐 특정한 하나의 타입을 가리킬 수 있으며 함수를 호출할 때 그 타입을 특정할 수 없다.   
+그러나 **프로토콜 타입이 반환 타입**일 땐 해당 프로토콜을 준수하는 모든 타입이 반환 타입으로 올 수 있다.   
+즉, 프로토콜 타입은 값의 실제 타입에 대한 유연성을 높여주는 역할 을 하며, 불명확 타입을 통해 그 실제 타입을 더 강력하게 보장할 수 있다.
+```
+// 불명확 타입 반환
+func flip<T: Shape>(_ shape: T) -> some Shape { 
+    return FlippedShape(shape: shape) 
+}
+ 
+// 프로토콜 타입 반환
+func protoFlip<T: Shape>(_ shape: T) -> Shape { 
+    return FlippedShape(shape: shape) 
+}
+```
+protoFlip 함수는 불명확 타입 반환 예제인 flip과 같은 기능을 하지만 반환 타입이 프로토콜 타입인 함수이며, 언제나 같은 타입의 값을 리턴한다.   
+protoFlip 함수는 제약이 없어 항상 같은 타입을 반환하지 않아도 된다. 그저 Shape 프로토콜을 준수하는 타입을 반환하기만 하면 된다.   
+때문에 protoFlip은 flip에 비해 함수호출에 대해 좀 더 느슨하며, 다양한 타입들을 반환할 수 있는 유연성을 갖고 있다.   
+대신 protoFlip의 반환 타입은 덜 
  
 #### Reference)
  
