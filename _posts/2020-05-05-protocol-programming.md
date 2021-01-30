@@ -125,4 +125,5 @@ var stringBox: StructBox<String> = StructBox(items: ["A", "B"])
  
 #### Reference)
  
-[https://duwjdtn11.tistory.com/618](https://duwjdtn11.tistory.com/618)
+[https://duwjdtn11.tistory.com/618](https://duwjdtn11.tistory.com/618)   
+[https://jinsangjin.tistory.com/101](https://jinsangjin.tistory.com/101)
