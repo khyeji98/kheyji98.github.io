@@ -258,7 +258,7 @@ protoFlip에서 반환된 값은 Shape을 준수하지 않는다고 보기 때�
     
 반면에 불명확 타입은 프로토콜 타입과는 달리 타입의 아이덴티티를 보존한다. 
 ```
-protocol Generic {
+protocol Container {
     associcatedtype Item
     var count : Int { get }
     subscript(i: Int) -> Item { get }
@@ -266,7 +266,7 @@ protocol Generic {
  
 extension Array: Container {  }
 ```
-프로토콜이 연관 타입을 갖고 있기 때문에 Container 프로토콜을 반환 타입으로 사용할 수 없는 상황이다.   
+프로토콜이 연관 타입을 갖고 있기 때문에 Container 프로토콜을 반환 타입으로 사용할 수 없는 상황이다.
 심지어 연관 타입을 함수 본체 외부에서 추정할 수 없기 때문에 제네릭의 제한 조건 `where` 키워드로도 사용할 수 없다.
 ```
 // Error: Protocol with associated types can't be used as a return type.
@@ -279,8 +279,28 @@ func makeProtocolContainer<T, C: Container>(item: T) -> C {
     return [item]
 }
 ```
-그러나 만약 반환 타입으로 `some Container`라는 불명확 타입을 사용하면 바람직한 API를 만들 수 있다.   
-some Container 값을 
+**이렇게 반환 타입으로 프로토콜을 사용할 수 없을 땐 대신 불명확 타입을 반환 타입으로 사용할 수 있다.**
+ 
+즉, 반환 타입으로 `some Container`라는 불명확 타입을 사용하면 바람직한 API를 만들 수 있다.   
+some Container 값을 반환하되, Container 타입이 정확히 뭔지는 지정하지 않는 것이다.
+```
+func makeOpaqueContainer<T>(item: T) -> some Container {
+    return [item]
+}
+ 
+let opaqueContainer = makeOpaqueContainer(item: 12)
+let twelve = opaqueContainer[0]
+ 
+print(type(of: twelve))
+// "Int"
+```
+makeOpaqueContainer이 호출된 opaqueContainer의 실제 타입은 **[T]** 이다.   
+그런데 이 케이스에서 T는 **Int**이기 때문에 `makeOpaqueContainer(item: 12)`의 반환값은 **정수형 배열**이며, 연관 타입인 item은 Int로 추론한다.   
+그리고 스위프트는 연관 타입을 추론할 수 있기 때문에 위 예제에서 twelve의 타입도 Int로 추론된 것이다.
+
+#### 정리
+ 
+- 불명확 
  
 #### Reference)
  
