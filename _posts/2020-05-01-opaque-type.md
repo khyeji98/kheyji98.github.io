@@ -172,15 +172,15 @@ print(opaqueJoinedTriangles.draw())
     
     
 반환 타입이 불명확 타입인 함수에는 제약이 있다.   
-바로 **언제나 같은 타입을 반환해야 한다**는 것이다.   
+바로 **"언제나 같은 타입을 반환해야 한다"** 는 것이다.   
  
 ```
 func invalidFlip<T: Shape>(_ shape: T) -> some Shape {
     if shape is Square {
-        return shape // Error: return types don't match 
+        return shape // error! : return types don't match 
     }
     
-    return FlippedShape(shape: shape) // Error: return types don't match 
+    return FlippedShape(shape: shape) // error! : return types don't match 
 }
 ```
 만약 이런 함수가 있다면 `some Shape`을 통해 반환 타입이 불명확 타입임을 명시했고, 이때 해당 함수는 오직 하나의 타입을 반환해야 한다.   
@@ -236,7 +236,14 @@ func protoFlip<T: Shape>(_ shape: T) -> Shape {
 protoFlip 함수는 불명확 타입 반환 예제인 flip과 같은 기능을 하지만 반환 타입이 프로토콜 타입인 함수이며, 언제나 같은 타입의 값을 리턴한다.   
 protoFlip 함수는 제약이 없어 항상 같은 타입을 반환하지 않아도 된다. 그저 Shape 프로토콜을 준수하는 타입을 반환하기만 하면 된다.   
 때문에 protoFlip은 flip에 비해 함수호출에 대해 좀 더 느슨하며, 다양한 타입들을 반환할 수 있는 유연성을 갖고 있다.   
-대신 protoFlip의 반환 타입은 덜 
+대신 protoFlip의 반환 타입은 덜 구체적이고 때문에 해당 반환값으로는 타입 정보에 의존하는 많은 작업들을 하기 어렵다.
+```
+let protoFlippedTriangle = protoFlip(smallTriangle)
+let sameThing = protoFlip(smallTriangle)
+protoFlippedTriangle == sameThing // error!
+```
+예를 들어 ==와 같은 연사자를 사용할 수 없다.   
+Shape 프로토콜의 요구조건에 == 연사자가 포함되어 있지 않기 때문이다. 설령 == 연산자를 추가한다쳐도 == 연산자의 왼쪽과 오른쪽에 오는 값들의 각각의 타입을 알아야 한다.
  
 #### Reference)
  
