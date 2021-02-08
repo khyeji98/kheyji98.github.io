@@ -1,6 +1,6 @@
 ---
 comments: true
-title: [Cocoapod 버전 업데이트 에러..]
+title: [Cocoapod 버전 업데이트 에러 해결 방법]
 key: 202102071
 modify_date: 2021-02-08
 picture_frame: shadow
