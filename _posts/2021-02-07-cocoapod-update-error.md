@@ -58,7 +58,7 @@ $ sudo gem install cocoapods
 그리고 확인한 결과   
 <p style="text-align:center"><img width="329" alt="KakaoTalk_Photo_2021-02-08-16-08-26" src="https://user-images.githubusercontent.com/50580583/107186946-88208200-6a28-11eb-84f9-99e767ed6e1c.png"></p>   
 짠!   
-**드디어 성공**😂
+**드디어 성공** 😂
     
     
 혼자 눈물을 훔치며 Xcode를 삭제했다가 다시 설치하고 이리저리 시간을 허비했었지만 이렇게 성공하고나니 시간 낭비와 좌절은 기억도 나지 않더라..^^
