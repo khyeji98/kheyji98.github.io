@@ -14,7 +14,7 @@ tags:
 데이터를 저장하는 방법에는 File, Core Data, Netwarok Server DB 등이 있는데, UserDefaults는 그 중에서 **plist**에 데이터를 저장한다.   
  
 UserDefaults에 대해 간단히 설명하자면, **사용자의 정보를 저장하는 싱글톤 인스턴스**로 간단한 사용자 정보를 저장하거나 불러올 수 있다.   
-때문에 UserDefaults를 사용하면 앱의 어느 곳에서나 데이터를 쉽게 읽고 저장할 수 있다.
+때문에 UserDefaults를 사용하면 앱의 어느 곳에서나 데이터를 쉽게 읽고 저장할 수 있다.   
 그러나 내부적으로 plist 파일에 저장되기 때문에 보안이 강력하지는 않다.   
  
 또한 UserDefaults는 **"데이터와 키(key)"** 를 통해 데이터를 저장하는데, 이때 key 값은 문자열 타입이다.
