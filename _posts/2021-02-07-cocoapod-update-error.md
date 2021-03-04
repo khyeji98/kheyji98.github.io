@@ -9,10 +9,10 @@ tags:
   - [Xcode]
 ---
  
-만약 코코아팟 버전 업데이트도 몰랐던 나처럼 완전 "컴맹+아마추어 개발자"라면 코코아팟 설치와 버전 업데이트 명령어가 같다는 것을 꼭꼭꼭 알아두자..
+만약 코코아팟 버전 업데이트도 몰랐던 나처럼 완전 "컴맹+아마추어 개발자"라면 코코아팟 설치와 버전 업데이트 명령어가 같다는 것을 꼭꼭꼭 알아두자
  
 ```
-$ sudo gem install cocoapods
+ $ sudo gem install cocoapods
 ```
  
 지금은 알지만 처음엔 몰라서 혼자 구글에 허둥지둥 검색하면서 고군분투했던 기억이..
@@ -30,34 +30,34 @@ $ sudo gem install cocoapods
     
 구글링해보니
 ```
-$ xcode-select --install
+ $ xcode-select --install
 ```
 command line tools 설치 여부를 확인하는 방법과
 ```
-$ brew install cocoapods --build-from-source
+ $ brew install cocoapods --build-from-source
 ```
 homebrew를 통해 install하는 방법과
 ```
-xcode 삭제후 재설치..^^
+ xcode 삭제후 재설치..^^
 ```
 이런 각종 방법들을 모두 동원해보았지만 내 에러는 해결되지 않았다ㅜㅜ   
     
     
 그러던 중 발견한 마지막 방법
 ```
-$ sudo rm -rf /Library/Developer/CommandLineTools
+ $ sudo rm -rf /Library/Developer/CommandLineTools
 ```
 먼저 기존에 설치된 command line tools를 아예 삭제하고,
 ```
-$ xcode-select --install
+ $ xcode-select --install
 ```
 다시 command line tools 설치,
 ```
-$ git --version
+ $ git --version
 ```
 오류 처리 여부를 확인하고,
 ```
-$ sudo gem install cocoapods
+ $ sudo gem install cocoapods
 ```
 다시 버전 업데이트!!   
  
