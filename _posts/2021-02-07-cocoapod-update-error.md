@@ -16,9 +16,11 @@ $ sudo gem install cocoapods
 ```
  
 지금은 알지만 처음엔 몰라서 혼자 구글에 허둥지둥 검색하면서 고군분투했던 기억이..
- 
+  
+  
 ***
- 
+  
+  
 아무튼 여느 때와 같이 코코아팟 버전을 1.10.0에서 1.10.1로 업데이트하려는데..   
  
 <p style="text-align:center"><img width="690" alt="KakaoTalk_Photo_2021-02-08-15-58-35" src="https://user-images.githubusercontent.com/50580583/107186940-86ef5500-6a28-11eb-8802-a6980f3b6d34.png"></p>   
