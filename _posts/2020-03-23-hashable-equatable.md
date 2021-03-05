@@ -10,7 +10,9 @@ tags:
 ---
  
 ## Hashable
-
+ 
+Hashable은 **프로토콜**
+ 
 ## Equqtable
 
 ## Hashable VS Equatable
