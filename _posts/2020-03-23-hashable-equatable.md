@@ -43,7 +43,7 @@ protocol Hashable: Equatable {
  
 ### Hashable이 Equatable을 상속받는 이유
  
-hash는 반드시 고유한 값이어야 하고, 이 hash가 고유값인지 식별해줄 수 있는 == 함수가 필요하기 때문에 Equatable을 상속받아야 한다.   
+hash는 반드시 고유한 값이어야 하고, **이 hash가 고유값인지 식별해줄 수 있는 == 함수가 필요하기 때문에** Equatable을 상속받아야 한다.   
 기본 데이터 타입인 String, Int, Double 등 역시 이미 Hashable을 상속받고 있기 때문에 자연스럽게 Equatable도 상속받고 있는 것이다.
  
 ### 사용자 정의 타입에서 Hashable 구현
