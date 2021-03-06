@@ -41,8 +41,6 @@ protocol Hashable: Equatable {
 실제 Hashable 프로토콜을 살펴보면 hash 값을 찾기 위해서 key값인 **hashValue**가 필요하다.   
 그리고 더 자세히 보면 Hashable은 Equatable을 상속받고 있는 것을 알 수 있다.
  
-**그렇다면 Hashable은 왜 Equatable을 상속받고 있을까?**
- 
 ### Hashable이 Equatable을 상속받는 이유
  
 hash는 반드시 고유한 값이어야 하고, 이 hash가 고유값인지 식별해줄 수 있는 == 함수가 필요하기 때문에 Equatable을 상속받아야 한다.   
