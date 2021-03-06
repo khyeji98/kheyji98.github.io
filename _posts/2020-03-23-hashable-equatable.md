@@ -52,6 +52,9 @@ hash는 반드시 고유한 값이어야 하고, 이 hash가 고유값인지 식
  
 위에서 말한 바에 의하면 Hashable을 상속받으면 Equatable도 자연스레 상속받는 것을 알 수 있다.   
 때문에 "전에는" 사용자 정의 타입을 생성할 때 해당 타입을 Hashable로 만드려면 **Equatable에 있는 == 함수를 구현**해줘야 하고, **HashValue**를 만들어줘야 했다.   
-그러나 
+그러나 업데이트 이후, **Equatable에 있는 == 함수만 구현**해주면 되고, **HashValue는 자동으로 생성**된다.
  
 #### Reference)
+ 
+[https://woongsios.tistory.com/145](https://woongsios.tistory.com/145)   
+[https://zeddios.tistory.com/498](https://zeddios.tistory.com/498)
