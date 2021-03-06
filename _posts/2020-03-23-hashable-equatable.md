@@ -1,6 +1,6 @@
 ---
 comments: true
-title: [Swift) Hashable VS Equatable]
+title: [Swift) Hashable은 왜 Equatable을 상속받을까]
 key: 202003231
 modify_date: 2020-05-11
 picture_frame: shadow
@@ -9,9 +9,20 @@ tags:
   - [swift]
 ---
  
+## Equqtable
+ 
+Equatable은 **프로토콜**로, **값이 동일한지 아닌지를 비교할 수 있는 타입**이다.   
+```
+protocol Equatable {
+  static func == (lhs: Self, rhs: Self) -> Bool
+}
+```
+즉, Equatable을 준수하는 타입은 "=="와 "!=" 연산자를 사용해 동등성을 비교할 수 있다.   
+그리고 스위프트 표준 라이브러리의 대부분 기본 데이터 타입(String, Int, Double 등)은 Equatable을 준수한다.   
+ 
 ## Hashable
  
-Hashable은 **프로토콜**로, 정수 hash를 제공하는 타입이다.   
+Hashable 역시 **프로토콜**로, **정수 hash를 제공하는 타입**이다.   
 표준 라이브러러의 많은 타입들이 Hashable을 준수하는데, 기본적으로 스위프트의 기본타입(String, Int, Double 등)과 Dictionary의 Key와 Enum이 있다.    
  
 #### 그렇다면 hash는 뭘까?
@@ -30,13 +41,13 @@ protocol Hashable: Equatable {
 실제 Hashable 프로토콜을 살펴보면 hash 값을 찾기 위해서 key값인 **hashValue**가 필요하다.   
 그리고 더 자세히 보면 Hashable은 Equatable을 상속받고 있는 것을 알 수 있다.
  
-## Equqtable
+**그렇다면 Hashable은 왜 Equatable을 상속받고 있을까?**
  
-Equatable 역시 **프로토콜**로, **값이 동일한지 아닌지를 비교할 수 있는 타입**이다.   
-
+### Hashable이 Equatable을 상속받는 이유?
+ 
+hash는 반드시 고유한 값이어야 하고, 이 hash가 고유값인지 식별해줄 수 있는 == 함수가 필요하기 때문에 Equatable을 상속받아야 한다.   
+기본 
  
 ## Hashable VS Equatable
-
-#### Hashable은 무엇이고, Equatable을 왜 상속해야 하는지 설명하시오.
-
+ 
 #### Reference)
