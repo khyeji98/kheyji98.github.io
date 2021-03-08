@@ -12,7 +12,7 @@ tags:
 ## 지정 이니셜라이저(designated init)
  
 designated init는 스위프트의 기본 초기화 이니셜라이저로, **클래스의 모든 프로퍼티가 초기화** 될 수 있도록 구현해줘야 한다.   
-기본 이니셜라이저이기 때문에 클래스 내부에 반드시 한 개 이상의 `init()`이 있어야 하고, 구현시 별도의 키워드없이 `init()`만 호출해주면 된다.
+기본 이니셜라이저이기 때문에 클래스 내부에 반드시 한 개 이상의 `init()`이 있어야 하고, 구현시 별도의 키워드없이 `init()`만 명시하면 된다.
 ```
 class SomeClass {
     var some: String = ""
@@ -60,7 +60,8 @@ class SomeClass {
  
 let test = SomeClass(some: "test") // SomeClass(some: "test", other: 10)
 ```
-designated init의 파라미터 중 일부를 기본값으로 설정해서, 예제처럼 convenience init 안에서 designated init을 호출해 초기화해야한다.   
+designated init의 파라미터 중 일부만을 초기화해줘도 된다.   
+대신 
 즉, 클래스 프로퍼티 중 일부만 초기화를 해준 후 다른 이니셜라이저를 호출해 전체 초기화를 수행하는 것이고 때문에 convenience init을 사용하려면 **무조건 designated init을 먼저 선언**해야 한다.   
 이러한 convenience init은 중복되는 초기화 코드를 방지하기 위해 사용된다.
  
@@ -148,6 +149,8 @@ class SubClass: SuperClass {
 ```
 테스트로 required init을 재정의하지 않았더니, 이렇게 에러가 발생했다.
  
+<p style="text-align:center"><img width="646" alt="KakaoTalk_Photo_2021-03-08-18-16-42" src="https://user-images.githubusercontent.com/50580583/110301089-0594dd80-803b-11eb-8ce6-c00810835557.png"></p>
+ 
 그래서 발생한 에러를 fix했더니,
 ```
 class SuperClass {
@@ -178,9 +181,13 @@ let test = SubClass(subProperty: "test")
  
 #### 생성자의 차이점과 특징
  
-- 지정 이니셜라이저(designated init) : 
-- 편의 이니셜라이저(convenience init) :
-- 필수 이니셜라이저(required init) :
+- **지정 이니셜라이저(designated init)**
+  - 반드시 클래스의 모든 프로퍼티를 초기화해줘야 한다.
+  - 클래스 내부에 반드시 하나 이상의 designated init이 있어야 한다.
+- **편의 이니셜라이저(convenience init)**
+  - 
+- **필수 이니셜라이저(required init)**
+  - 
  
 #### Reference)
  
