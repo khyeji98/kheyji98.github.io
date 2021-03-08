@@ -61,9 +61,8 @@ class SomeClass {
 let test = SomeClass(some: "test") // SomeClass(some: "test", other: 10)
 ```
 designated init의 파라미터 중 일부만을 초기화해줘도 된다.   
-대신 
-즉, 클래스 프로퍼티 중 일부만 초기화를 해준 후 다른 이니셜라이저를 호출해 전체 초기화를 수행하는 것이고 때문에 convenience init을 사용하려면 **무조건 designated init을 먼저 선언**해야 한다.   
-이러한 convenience init은 중복되는 초기화 코드를 방지하기 위해 사용된다.
+즉, 클래스 프로퍼티 중 일부만 초기화를 해준 후 다른 이니셜라이저를 호출해 전체 초기화를 수행하는 것이고 때문에 convenience init을 사용하려면 **반드시 designated init을 가장 먼저 호출**해줘야 한다.   
+이러한 convenience init은 중복되는 코드를 방지하기 위해 사용된다.
  
 #### 이니셜라이저의 상속 조건
  
@@ -185,9 +184,9 @@ let test = SubClass(subProperty: "test")
   - 반드시 클래스의 모든 프로퍼티를 초기화해줘야 한다.
   - 클래스 내부에 반드시 하나 이상의 designated init이 있어야 한다.
 - **편의 이니셜라이저(convenience init)**
-  - 
+  - 같은 클래스의 designated init을 가장 먼저 호출해야 한다.
 - **필수 이니셜라이저(required init)**
-  - 
+  - required init이 구현된 클래스를 상속하는 서브 클래스는 반드시 해당 required init을 재정의해야한다.
  
 #### Reference)
  
