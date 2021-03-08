@@ -66,7 +66,8 @@ designated init의 파라미터 중 일부만을 초기화해줘도 된다.
  
 #### 이니셜라이저의 상속 조건
  
-- 서브 클래스가 designated init을 정의하지 않은 경우, **슈퍼 클래스의 designated init**을 상속받는다.(슈퍼 클래스에 convenience init도 있다면 convenience init까지 자동 상속)
+- 서브 클래스가 designated init을 정의하지 않은 경우, **슈퍼 클래스의 designated init**을 상속받는다.(슈퍼 클래스에 convenience init도 있다면 convenience init까지 자동 상속)   
+ 
 ```
 class SuperClass {
     var superProperty = ""
@@ -87,7 +88,8 @@ class SubClass: SuperClass {
 let testOne = SubClass(superProperty: "designated initializer") // 슈퍼 클래스의 "designated init" 자동 상속
 let testTwo = SubClass() // 슈퍼 클래스의 "convenience init"까지 자동 상속
 ```
-- 서브 클래스가 슈퍼 클래스의 designated init을 **모두 "상속" 또는 "override"** 한 경우, 자동으로 **슈퍼 클래스의 convenience init**을 상속받는다.
+- 서브 클래스가 슈퍼 클래스의 designated init을 **모두 "상속" 또는 "override"** 한 경우, 자동으로 **슈퍼 클래스의 convenience init**을 상속받는다.   
+ 
 ```
 class SuperClass {
     var superProperty = ""
