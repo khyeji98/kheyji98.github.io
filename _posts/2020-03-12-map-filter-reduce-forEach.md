@@ -1,6 +1,6 @@
 ---
 comments: true
-title: [Swift ) 고차함수(Map, Filter, Reduce, For-Each)]
+title: Swift ) 고차함수(Map, Filter, Reduce, For-Each)
 key: 202003121
 modify_date: 2020-09-20
 picture_frame: shadow
