@@ -43,7 +43,9 @@ iOS에서는 `UIKit`과 같은 UI 프레임워크를 주로 다루기 때문에 
  
 ### 차이점
  
-![image](https://user-images.githubusercontent.com/50580583/110591793-d60dde80-81bc-11eb-9578-48867f8d0367.png)
+<p style="text-align:center">![image](https://user-images.githubusercontent.com/50580583/110591793-d60dde80-81bc-11eb-9578-48867f8d0367.png)</p>
+ 
+사실 
  
 - 프레임워크
   - 특정 프로그램을 개발하기 위한 여러 요소들과 해당 프레임워크를 사용하기 위한 규약 및 틀을 제공하는 프로그램
