@@ -1,6 +1,6 @@
 ---
 comments: true
-title: [iOS ) 프레임워크(Framework) VS 라이브러리(Library)]
+title: [iOS ) 라이브러리(Library) VS 프레임워크(Framework)]
 key: 202005201
 modify_date: 2020-12-09
 picture_frame: shadow
