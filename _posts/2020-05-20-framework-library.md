@@ -6,7 +6,6 @@ modify_date: 2020-12-09
 picture_frame: shadow
 tags:
   - [iOS]
-  - [interview]
 ---
  
 ## 라이브러리
