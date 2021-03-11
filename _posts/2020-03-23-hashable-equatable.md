@@ -1,11 +1,10 @@
 ---
 comments: true
-title: [Swift) Hashable은 왜 Equatable을 상속받을까]
+title: [Swift) Hashable과 Equatable]
 key: 202003231
 modify_date: 2020-05-11
 picture_frame: shadow
 tags:
-  - [interview]
   - [swift]
 ---
  
