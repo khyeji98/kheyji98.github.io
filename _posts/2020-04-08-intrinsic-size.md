@@ -51,7 +51,7 @@ text에 의해 변경된 content size가 제대로 적용되지 않는 것을 �
  
 ## summary
  
-> 내용이 너무 간단하여 간단하게 요약을 해보자면,   
+> 내용이 너무 간단하여 간단하게 요약을 해보자면   
  
 Intrinsic size는 객체나 뷰의 내부 content 크기에 따라 변경되는 크기를 뜻하며, Intrinsic size에 의해 Auto Layout에 적용되는 UI들은 `invalidateIntrinsicContentSize()`라는 메소드를 갖고 있다.
  
