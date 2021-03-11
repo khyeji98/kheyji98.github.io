@@ -17,7 +17,7 @@ Intrinsic Size란 해석 그대로 **본질적인 내용의 크기**인데, 우�
  
 <p style="text-align:center"><img width="482" alt="KakaoTalk_Photo_2021-03-11-22-04-58" src="https://user-images.githubusercontent.com/50580583/110793354-ddfe7900-82b7-11eb-8278-d8fa39f68b5b.png"></p>   
  
-<p style="text-align:center"><img width="467" alt="KakaoTalk_Photo_2021-03-11-22-05-03" src="https://user-images.githubusercontent.com/50580583/110793361-dfc83c80-82b7-11eb-89c0-d0f533b9db1d.png"></p>   
+<p style="text-align:center"><img width="482" alt="KakaoTalk_Photo_2021-03-11-22-05-03" src="https://user-images.githubusercontent.com/50580583/110793361-dfc83c80-82b7-11eb-89c0-d0f533b9db1d.png"></p>   
  
 이렇게 내부에 있는 content, 즉 text에 따라 width가 달라짐을 알 수 있다.(물론 폰트에 따라 height도 달라질 수 있다)
 그리고 이렇게 content에 따라 달라지는 크기를 **Intrinsic size**라고 하는 것이다.   
