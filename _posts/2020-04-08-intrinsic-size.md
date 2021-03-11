@@ -31,7 +31,7 @@ UILabel 외에도 UIButton, UISwitch, UITextField, UITextView, UIImageView 등�
  
  
 UIView는 기본적으로 적용이 되어 있기 때문에 크게 신경쓰지 않아도 된다.   
-다만, 커스텀뷰를 만들게 되면 `invalidateIntrisicContentSize()` 메소드를 구현해줘야 한다.   
+다만, **커스텀뷰**를 만들게 되면 `invalidateIntrisicContentSize()` 메소드를 구현해줘야 한다.   
  
 다시 또 UILabel로 예를 들어,
 ```
