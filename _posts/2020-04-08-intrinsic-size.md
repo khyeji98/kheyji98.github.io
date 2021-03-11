@@ -1,6 +1,6 @@
 ---
 comments: true
-title: [Swift ) Intrinsic Size란? ]
+title: [Swift ) Intrinsic Size]
 key: 202004081
 modify_date: 2020-04-08
 picture_frame: shadow
