@@ -5,7 +5,6 @@ key: 202004051
 modify_date: 2020-04-05
 picture_frame: shadow
 tags:
-  - [interview]
   - [swift]
 ---
  
