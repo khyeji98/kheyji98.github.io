@@ -12,6 +12,7 @@ tags:
  
 Foundation Kit 즉, Foundation 프레임워크란 **Cocoa Touch 프레임워크에 포함**된 프레임워크로 **프로그램의 중심**을 담당하는 프레임워크이다.   
 Foundation은 원시 데이터 타입과 컬렉션 타입 및 운영체제 서비스를 사용해 어플리케이션의 기본적인 기능을 관리하며, Foundation 프레임워크에서 정의한 클래스와 프로토콜 및 데이터 타입은 iOS, MacOS, tvOS 등 모든 애플의 SDK에서 사용된다.   
+ 
 때문에 Foundation 프레임워크를 상속하지 않으면 거의 아무것도 못한다고 볼 수 있다.   
  
 ### 주요 기능
