@@ -1,6 +1,6 @@
 ---
 comments: true
-title: [Swift ) 인스턴스 메소드와 타입 메소드(Instance Method & Type Method)]
+title: Swift ) 인스턴스 메소드와 타입 메소드(Instance Method, Type Method)
 key: 202004051
 modify_date: 2020-04-05
 picture_frame: shadow
