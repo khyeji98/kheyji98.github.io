@@ -1,6 +1,6 @@
 ---
 comments: true
-title: [Swift) Hashable과 Equatable]
+title: Swift) Hashable과 Equatable
 key: 202003231
 modify_date: 2020-05-11
 picture_frame: shadow
