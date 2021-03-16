@@ -79,14 +79,56 @@ extension RingBuffer: CustomStringConvertible {
     }
 }
 ```
-
+알고보니 `CustomStringConvertible`은 결과 디버깅과 테스트를 용이하게 하기 위해 준수하는 프로토콜이라고 한다..ㅎ   
+ 
+그리고 이제 **제네릭 구조체**인 QueueRingBuffer를 정의해보자.
+```
+public struct QueueRingBuffer<T>: Queue { 
+    private var ringBuffer: RingBuffer<T> 
+    
+    public init(count: Int) {
+        ringBuffer = RingBuffer<T>(count: count)
+    }
+    
+    public var isEmpty: Bool {
+        ringBuffer.isEmpty 
+    }
+    
+    public var peek: T? {
+        ringBuffer.first 
+    }
+    
+    // 큐에 요소 추가
+    public mutating func enqueue(_ element: T) -> Bool { 
+        // 요소 추가에 성공하면 true, 실패하면 false 반환(고정된 크기라서 실패할 수도 있음)
+        ringBuffer.write(element) 
+    }
+    
+    // 큐의 앞에서 요소 삭제
+    public mutating func dequeue() -> T? {
+        // ringBuffer가 비어있는지 체크하고, 만약 비어있다면 nil 반환
+        ringBuffer.read()
+    }
+}
+```
+순환 버퍼는 크기가 고정된 버퍼이기 때문에 반드시! **count** 파라미터를 포함해야 한다.   
+ 
+그리고 `Queue` 프로토콜을 상속하기 때문에 `isEmpty`와 `peek` 프로퍼티를 생성했으며, 이 변수들은 ringBuffer를 노출시키지 않고 큐의 앞 요소에 접근하여 큐가 비어있는지 확인한다.
+```
+extension QueueRingBuffer: CustomStringConvertible {
+    public var description: String {
+        String(describing: ringBuffer)
+    }
+}
+```
+QueueRingBuffer 역시 
  
 ### 장점
  
 - 배열 데이터 구조보다 데이터 저장에 효율적이다.
 - 버퍼의 메모리 크기가 안정적인 상태를 유지한다.
 - 구현할 때, 버퍼의 크기를 조절하고 기존의 데이터를 새로 생성된 버퍼로 전달하는 기능이 추가된다.
-
+ 
 #### Reference)
  
 [https://iospanda.tistory.com/entry/Swift-Queue-Ring-Buffer-Double-Stack%EC%9D%84-%EC%9D%B4%EC%9A%A9%ED%95%9C-Queue-%EA%B5%AC%ED%98%84%EA%B3%BC-%EA%B7%B8-%EC%98%88](https://iospanda.tistory.com/entry/Swift-Queue-Ring-Buffer-Double-Stack%EC%9D%84-%EC%9D%B4%EC%9A%A9%ED%95%9C-Queue-%EA%B5%AC%ED%98%84%EA%B3%BC-%EA%B7%B8-%EC%98%88)
