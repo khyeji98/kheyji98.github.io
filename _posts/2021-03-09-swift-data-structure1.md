@@ -5,7 +5,6 @@ key: 202103091
 modify_date: 2021-03-09
 picture_frame: shadow
 tags:
-  - [Algorithm]
   - [데이터 구조]
 ---
  
