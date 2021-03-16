@@ -1,6 +1,6 @@
 ---
 comments: true
-title: [Swift ) 서브스크립트(Subscript)]
+title: Swift ) 서브스크립트(Subscript)
 key: 202003241
 modify_date: 2020-03-24
 picture_frame: shadow
