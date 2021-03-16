@@ -1,6 +1,6 @@
 ---
 comments: true
-title: [Swift ) 타입 캐스팅(Type Casting)]
+title: Swift ) 타입 캐스팅(Type Casting)
 key: 202002271
 modify_date: 2020-02-28
 picture_frame: shadow
