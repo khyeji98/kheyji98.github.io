@@ -1,6 +1,6 @@
 ---
 comments: true
-title: [Swift ) Struct VS Class]
+title: Swift ) Struct VS Class
 key: 202001221
 modify_date: 2020-01-22
 picture_frame: shadow
