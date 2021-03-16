@@ -28,6 +28,7 @@ public struct RingBuffer<T> {
     }
     
     public var first: T? {
+        // readIndex가 큐의 첫번째 값
         array[readIndex]
     } 
     
@@ -80,6 +81,11 @@ extension RingBuffer: CustomStringConvertible {
 }
 ```
 알고보니 `CustomStringConvertible`은 결과 디버깅과 테스트를 용이하게 하기 위해 준수하는 프로토콜이라고 한다..ㅎ   
+뜯어보면 `availableSpaceForReading`은 읽을 수 있는 요소 카운트이므로 "아직 제거되지 않은 값부터 새로 추가된 값까지"를 나타내는 것이다.   
+그리고 그 범위만큼 map함수를 돌린다는 것이다.   
+그렇다면 **순환 버퍼**이기 때문에 어차피 0..<5 일 것이다.
+ 
+
  
 그리고 이제 **제네릭 구조체**인 QueueRingBuffer를 정의해보자.
 ```
@@ -121,7 +127,19 @@ extension QueueRingBuffer: CustomStringConvertible {
     }
 }
 ```
-QueueRingBuffer 역시 
+QueueRingBuffer 역시 결과 디버깅과 테스트를 용이하게 하기 위해 CustomStringConvertible 프로토콜을 준수한다.   
+이 코드는 큐 내부의 ringBuffer에 위임하여 큐의 문자열 표현을 생성한다.
+ 
+```
+var queue = QueueRingBuffer<String>(count: 10) 
+queue.enqueue("Kim")
+queue.enqueue("Jung")
+queue.enqueue("Yoon")
+queue 
+queue.dequeue()
+queue
+queue.peek
+```
  
 ### 장점
  
@@ -131,4 +149,5 @@ QueueRingBuffer 역시
  
 #### Reference)
  
-[https://iospanda.tistory.com/entry/Swift-Queue-Ring-Buffer-Double-Stack%EC%9D%84-%EC%9D%B4%EC%9A%A9%ED%95%9C-Queue-%EA%B5%AC%ED%98%84%EA%B3%BC-%EA%B7%B8-%EC%98%88](https://iospanda.tistory.com/entry/Swift-Queue-Ring-Buffer-Double-Stack%EC%9D%84-%EC%9D%B4%EC%9A%A9%ED%95%9C-Queue-%EA%B5%AC%ED%98%84%EA%B3%BC-%EA%B7%B8-%EC%98%88)
+[https://iospanda.tistory.com/entry/Swift-Queue-Ring-Buffer-Double-Stack%EC%9D%84-%EC%9D%B4%EC%9A%A9%ED%95%9C-Queue-%EA%B5%AC%ED%98%84%EA%B3%BC-%EA%B7%B8-%EC%98%88](https://iospanda.tistory.com/entry/Swift-Queue-Ring-Buffer-Double-Stack%EC%9D%84-%EC%9D%B4%EC%9A%A9%ED%95%9C-Queue-%EA%B5%AC%ED%98%84%EA%B3%BC-%EA%B7%B8-%EC%98%88)   
+[https://the-brain-of-sic2.tistory.com/22](https://the-brain-of-sic2.tistory.com/22)
