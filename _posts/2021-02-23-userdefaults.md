@@ -1,6 +1,6 @@
 ---
 comments: true
-title: [Swift ) UserDefaults를 통한 데이터 저장]
+title: Swift ) UserDefaults를 통한 데이터 저장
 key: 202102231
 modify_date: 2021-02-23
 picture_frame: shadow
