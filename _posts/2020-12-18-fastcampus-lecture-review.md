@@ -1,6 +1,6 @@
 ---
 comments: true
-title: [패스트캠퍼스-iOS 앱개발 올인원 패키지 Online 수강 정리&후기]
+title: 패스트캠퍼스-iOS 앱개발 올인원 패키지 Online 수강 정리&후기
 key: 202012181
 modify_date: 2021-01-31
 picture_frame: shadow
