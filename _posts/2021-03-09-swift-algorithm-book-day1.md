@@ -1,6 +1,6 @@
 ---
 comments: true
-title: [Swift ) 스위프트 기본 데이터 구조]
+title: Swift ) 스위프트 기본 데이터 구조
 key: 202103091
 modify_date: 2021-03-09
 picture_frame: shadow
