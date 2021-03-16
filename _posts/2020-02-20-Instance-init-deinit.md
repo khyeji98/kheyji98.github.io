@@ -1,6 +1,6 @@
 ---
 comments: true
-title: [Swift ) 인스턴스 생성과 소멸]
+title: Swift ) 인스턴스 생성과 소멸(init, deinit)
 key: 202002201
 modify_date: 2020-09-12
 picture_frame: shadow
