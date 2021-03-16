@@ -1,6 +1,6 @@
 ---
 comments: true
-title: [iOS ) Intrinsic Size]
+title: iOS ) Intrinsic Size
 key: 202004081
 modify_date: 2020-04-08
 picture_frame: shadow
