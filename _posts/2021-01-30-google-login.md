@@ -1,6 +1,6 @@
 ---
 comments: true
-title: [TIL ) Google 로그인]
+title: TIL ) Google 로그인
 key: 202101301
 modify_date: 2021-01-30
 picture_frame: shadow
