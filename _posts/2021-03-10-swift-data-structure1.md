@@ -143,7 +143,41 @@ queue.count // 2 = [2, 1]
 <p style="text-align:center"><img width="395" alt="KakaoTalk_Photo_2021-03-17-12-15-12" src="https://user-images.githubusercontent.com/50580583/111410975-1ae5c800-871d-11eb-84ca-1be3f7246c20.png"></p>
  
 ```
-
+public struct DoubleStack<T> {
+    private var leftStack = [T]() // 호출 안됨
+    private var rightStack = [T]() // 호출 안됨
+    
+    public init() {}
+    
+    public mutating func enqueue(_ element: T) {
+        rightStack.append(element)
+    }
+    
+    public mutating func dequeue() -> T? {
+        if leftStack.isEmpty {
+            leftStack = rightStack.reversed()
+            rightStack.removeAll()
+        }
+        return leftStack.popLast()
+    }
+    
+    public var isEmpty: Bool {
+        return rightStack.isEmpty && leftStack.isEmpty
+    }
+    
+    public var peek: T? {
+        return leftStack.isEmpty ? rightStack.last : leftStack.first
+    }
+}
+ 
+var doubleStack = DoubleStack<Int>()
+doubleStack.enqueue(3) // rightStack = [3], leftStack = []
+doubleStack.enqueue(2) // rightStack = [3, 2], leftStack = []
+doubleStack.enqueue(1) // rightStack = [3, 2, 1], leftStack = []
+doubleStack.dequeue() // rightStack = [], leftStack = [1, 2, 3]
+doubleStack.dequeue()
+doubleStack.dequeue()
+print(doubleStack.isEmpty)
 ```
  
 #### Reference)
