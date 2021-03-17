@@ -1,6 +1,6 @@
 ---
 comments: true
-title: Swift ) 스택(Stack)
+title: Swift ) 스택(Stack)과 큐(Queue)
 key: 202103101
 modify_date: 2021-03-10
 picture_frame: shadow
@@ -63,6 +63,80 @@ myStack.pop() // 2
 myStack.pop() // 3
 ```
 정말 `pop()` 메소드를 호출했을 때 가장 마지막에 추가한 요소부터 반환되는 것을 확인할 수 있었다.
+ 
+## 큐(Queue)
+ 
+큐는 스택과 반대로 먼저 입력된 데이터가 먼저 출력되는 선입선출, 즉 **FIFO**(First In-First Out) 데이터 구조를 나타낸다.
+ 
+### 메소드 및 프로퍼티
+ 
+- enqueue : 큐의 맨 뒤에 새로운 요소 추가
+- dequeue : 큐의 첫 번째 요소를 제거한 뒤 반환
+- peek : 큐의 첫 번째 요소를 반환하되 제거하지 않음
+- clear : 큐를 비움
+- insert : 큐의 특정 인덱스 위치에 요소 삽입
+- removeAtIndex : 큐의 특정 인덱스 위치에 있는 요소 제거
+- capacity : 큐 용량을 가져오거나 설정하기 위한 read/wirte 프로퍼티
+ 
+### 구현
+ 
+```
+public struct Queue<T> {
+    private var data = [T]()
+    
+    public init() {}
+    
+    public mutating func dequeue() -> T? {
+        return data.removeFirst()
+    }
+    
+    public func peek() -> T? {
+        return data.first
+    }
+    
+    public mutating func enqueue(_ element: T) {
+        data.append(element)
+    }
+    
+    public mutating func clear() {
+        data.removeAll()
+    }
+    
+    public var count: Int {
+        return data.count
+    }
+    
+    // 큐의 용량 반환
+    public var capacity: Int {
+        get {
+            return data.capacity
+        }
+        set {
+            data.reserveCapacity(newValue)
+        }
+    }
+    
+    public func isFull() -> Bool {
+        return count == data.capacity
+    }
+    
+    public func isEmpty() -> Bool {
+        return data.isEmpty
+    }
+}
+ 
+var queue = Queue<Int>()
+queue.enqueue(3) // [3]
+queue.enqueue(2) // [3, 2]
+queue.enqueue(1) // [3, 2, 1]
+queue.dequeue() // 3
+queue.peek() // 2
+queue.count // 2 = [2, 1]
+```
+ 
+### 스택으로 큐 구현
+ 
 
+ 
 #### Reference)
  
