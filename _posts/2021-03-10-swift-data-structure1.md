@@ -136,9 +136,15 @@ queue.peek() // 2
 queue.count // 2 = [2, 1]
 ```
  
-### 스택으로 큐 구현
+### 더블 스택으로 큐 구현
  
+배열의 마지막 요소를 제거하는 연산이 **더블 스택**에서는 필요하지 않기 때문에 수행속도가 더 빠르고 효율적임을 활용한 방법이다.   
+ 
+<p style="text-align:center"><img width="395" alt="KakaoTalk_Photo_2021-03-17-12-15-12" src="https://user-images.githubusercontent.com/50580583/111410975-1ae5c800-871d-11eb-84ca-1be3f7246c20.png"></p>
+ 
+```
 
+```
  
 #### Reference)
  
