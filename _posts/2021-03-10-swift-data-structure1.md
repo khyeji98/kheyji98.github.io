@@ -14,6 +14,8 @@ tags:
 개별 요소에 무작위 접근을 허용하는 배열과는 달리, 스택은 개별 요소에 접근하는 방법을 강하게 제한한 인터페이스를 제공한다.   
 iOS 프로그래밍에서는 주로 Navigation Controller에서 스택을 사용한다.   
  
+<p style="text-align:center"><img width="437" alt="KakaoTalk_Photo_2021-03-17-11-17-13" src="https://user-images.githubusercontent.com/50580583/111404602-634bb880-8712-11eb-941c-a6b0aeb46cc2.png"></p>
+ 
 ### 메소드
  
 - push : 스택의 맨 위에 데이터를 쌓는다.
