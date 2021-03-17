@@ -68,6 +68,8 @@ myStack.pop() // 3
  
 큐는 스택과 반대로 먼저 입력된 데이터가 먼저 출력되는 선입선출, 즉 **FIFO**(First In-First Out) 데이터 구조를 나타낸다.
  
+<p style="text-align:center"><img width="656" alt="KakaoTalk_Photo_2021-03-17-11-38-00" src="https://user-images.githubusercontent.com/50580583/111408742-13bcbb00-8719-11eb-87ca-92f068260a03.png"></p>
+ 
 ### 메소드 및 프로퍼티
  
 - enqueue : 큐의 맨 뒤에 새로운 요소 추가
