@@ -10,4 +10,8 @@ tags:
 
 ## Delegate Pattern
 
+### Delegation
+
+Delegation이란 일부 클래스의 책임을 다른 클래스의 인스턴스에게 위임 또는
+
 #### Reference)
