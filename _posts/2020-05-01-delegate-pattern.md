@@ -10,8 +10,10 @@ tags:
 
 ## Delegate Pattern
 
-### Delegation
+### Delegate
 
-Delegation이란 일부 클래스의 책임을 다른 클래스의 인스턴스에게 위임 또는
+Delegate란 어떠한 객체가 할 일을 대신 **위임받는 객체**를 뜻하는데, **어떠한 객체가 정의한 프로토콜을 준수하는 객체**만이 위임받을 수 있다.   
+
+
 
 #### Reference)
