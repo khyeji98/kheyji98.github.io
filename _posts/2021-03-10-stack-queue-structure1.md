@@ -5,7 +5,7 @@ key: 202103101
 modify_date: 2021-03-10
 picture_frame: shadow
 tags:
-  - [데이터 구조]
+  - [자료구조]
 ---
  
 ## 스택(Stack)
