@@ -1,6 +1,6 @@
 ---
 comments: true
-title: Swift ) 프로그래밍 언어 - 스위프트는 어떤 언어인가
+title: Swift ) 프로그래밍 언어 - 스위프트는 어떤 언어인가?
 key: 202005101
 modify_date: 2020-05-10
 picture_frame: shadow
