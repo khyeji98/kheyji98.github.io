@@ -5,7 +5,7 @@ key: 202103081
 modify_date: 2021-03-08
 picture_frame: shadow
 tags:
-  - [데이터 구조]
+  - [자료구조]
 ---
  
 ## 반복기(Iterator)
