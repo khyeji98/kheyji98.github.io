@@ -26,9 +26,12 @@ func solution(_ board:[[Int]], _ moves:[Int]) -> Int {
     var newBoard = board
     var basket = [Int]()
     var result = 0
+    
     for i in moves {
         if let pick = newBoard.filter({$0[i-1] != 0}).first, let index = newBoard.firstIndex(of: pick) {
+        
             newBoard[index][i-1] = 0
+            
             if let last = basket.last, last == pick[i-1] {
                 basket.removeLast()
                 result += 2
