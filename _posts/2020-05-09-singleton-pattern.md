@@ -83,3 +83,6 @@ print(userInfo02.id) // "Optional("혜지임")"
   - 수정과 테스트가 어려워진다.
   
 #### Reference)
+ 
+[https://babbab2.tistory.com/66](https://babbab2.tistory.com/66)   
+[https://velog.io/@naroti/iOS-%EA%B0%9C%EB%B0%9C-Singleton-Pattern-q4k3uzgf0n](https://velog.io/@naroti/iOS-%EA%B0%9C%EB%B0%9C-Singleton-Pattern-q4k3uzgf0n)
