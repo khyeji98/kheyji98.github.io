@@ -70,7 +70,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
 }
 ```
 대리자에서 해당 프로토콜을 채택하고 메소드를 구현한다.   
-그리고 
+그리고 반드시 `cell.delegate = self`와 같이 해당 위임을 어떤 대리자가 받는지 알려줘야 한다.
  
 ### Delegate Pattern을 활용하는 이유
  
