@@ -42,18 +42,39 @@ class TableViewCell: UITableViewCell {
     }
 }
 ```
-이렇게 TableViewCell의 권한을 위임할 프로토콜을 선언하고 호출하면,
+이렇게 TableViewCell의 권한을 위임할 프로토콜을 선언하고 위임자에서 호출하면,
 ```
 // ViewController
 class ViewController: UIViewController {
-    // code
+    
+    @IBOutlet weak var tableView: UITableView!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        // 이것 또한 델리게이트 패턴
+        self.tableView.delegate = self
+        self.tableView.dataSource = self
+    }
 }
 extension ViewController: TableViewCellDelegate {
     func btnClicked() {
         // ViewController에서 TableViewCell 대신 실행할 코드
     }
 }
+extension ViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "TableViewCell", for: indexPath) as! TableViewCell
+        cell.delegate = self
+        return cell
+    }
+}
 ```
+대리자에서 해당 프로토콜을 채택하고 메소드를 구현한다.   
+그리고 
+ 
+### Delegate Pattern을 활용하는 이유
+ 
+위임을 통해 객체가 분리된 상태로 통신이 이루어지기 때문에 객체의 구체적인 타입을 알 필요가 없고, **재사용 및 유지 관리가 쉬운 코드**를 작성할 수 있다.
  
 #### Reference)
  
