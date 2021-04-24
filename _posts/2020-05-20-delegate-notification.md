@@ -1,6 +1,6 @@
 ---
 comments: true
-title: Swift ) Delegate와 Notification
+title: Swift ) Delegate, Notification, KVO
 key: 202005201
 modify_date: 2020-05-20
 picture_frame: shadow
@@ -11,6 +11,8 @@ tags:
 ## Delegate
 
 ## Notification
+
+## KVO
 
 ## Delegate VS Notification
 
