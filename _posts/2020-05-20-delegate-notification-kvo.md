@@ -88,6 +88,7 @@ class OtherViewController: UIViewController {
     }
     
     @objc func receiveNotification(noti: Notification) {
+    
         // Notification으로 받은 object와 userInfo
         guard let object = noti.object as? UIButton else { return }
         print(object.titleLabel?.text ?? "empty")
