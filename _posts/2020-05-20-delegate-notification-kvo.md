@@ -52,7 +52,7 @@ extension SomeViewController: SomeProtocol {
 ```
 이렇게 구현되어 있을 경우, 만약 SomeView에서 `someBtnClicked()`에 연결되어 있는 버튼을 클릭한다면 "clicked"라고 출력될 것이다.   
  
-#### 참고 : [Delegate Pattern](https://khyeji98.github.io/post/2020/05/01/delegate-pattern.html)
+#### 참고 : [https://khyeji98.github.io/post/2020/05/01/delegate-pattern.html](https://khyeji98.github.io/post/2020/05/01/delegate-pattern.html)
  
 ## Notification
  
@@ -101,7 +101,7 @@ class OtherViewController: UIViewController {
 KVO는 A 객체에서 B 객체의 프로퍼티가 변화됨을 감지할 수 있는 패턴으로, Delegate와 Notification이 주로 Controller와 다른 객체 사이의 관계를 다룬다면 KVO는 **객체와 객체 사이의 관계**를 다루는데에 적합하다.   
 메소드나 다른 액션에 의한 이벤트에 발생하는 것이 아닌, **프로퍼티의 상태에 따라** 발생하는 패턴이다.   
  
-#### 참고 : [KVO](https://khyeji98.github.io/post/2020/05/14/kvo.html)
+#### 참고 : [https://khyeji98.github.io/post/2020/05/14/kvo.html](https://khyeji98.github.io/post/2020/05/14/kvo.html)
  
 ## 장단점
  
