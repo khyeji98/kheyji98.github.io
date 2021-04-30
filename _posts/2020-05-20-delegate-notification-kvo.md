@@ -136,7 +136,7 @@ KVO는 A 객체에서 B 객체의 프로퍼티가 변화됨을 감지할 수 있
  
 - **장점**
   - 두 객체 사이의 정보를 맞춰주는 것이 쉬움
-  - new/old valuee를 쉽게 얻을 수 있음
+  - new/old value를 쉽게 얻을 수 있음
   - key path로 옵저빙하기 때문에 nested objects도 옵저빙할 수 있음
 - **단점**
   - `NSObject`를 상속받는 객체에서만 사용 가능
