@@ -19,7 +19,9 @@ tags:
 import Foundation
  
 func solution(_ n:Int, _ lost:[Int], _ reserve:[Int]) -> Int {
+ 
     var newReserve = reserve.filter{!lost.contains($0)}
+    
     let realLost = lost.filter{!reserve.contains($0)}.filter{
         if let front = newReserve.firstIndex(of: $0-1) {
             newReserve.remove(at: front)
@@ -30,8 +32,14 @@ func solution(_ n:Int, _ lost:[Int], _ reserve:[Int]) -> Int {
         }
         return false
     }
+    
     return n - realLost.count
 }
 ```
 - `newReserve`
+  - 체육복을 빌려줄 수 있는 학생이 계속해서 변동되므로, `reserve`의 값을 초기값으로 한 변수
+  - 계속해서 변동되는 값 할당
 - `realLost`
+  - 마지막까지 체육복을 빌리지 못한 학생들을 저장하는 변수
+  - `solution()`에서 반환할 값
+ 
