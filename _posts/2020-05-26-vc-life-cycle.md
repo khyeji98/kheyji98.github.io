@@ -12,6 +12,8 @@ tags:
  
 앱을 구셩하는 모든 ViewController들은 각각 생명주기를 갖고 있는데, **ViewController가 화면에 보였다가 사라지는 주기**를 생명주기라고 한다.   
  
+<p style="text-align:center"><img width="510" alt="KakaoTalk_Photo_2021-05-04-19-16-53" src="https://user-images.githubusercontent.com/50580583/116989888-53615580-ad0d-11eb-8d6a-c4504fbdc33f.png"><\p>
+ 
 ### loadView()
  
 **화면에 띄워줄 view를 만드는 메소드**로, view를 만들고 메모리에 올린다.   
