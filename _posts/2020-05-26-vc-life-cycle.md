@@ -25,8 +25,30 @@ tags:
 보통 사용자에게 화면이 보여지기 전에 데이터를 뿌려주는 행위에 대한 코드를 작성하며, **리소스를 초기화하거나 초기화면을 구성하는 용도**로 쓰인다.   
 이 메소드는 ViewController 생에 **"딱 한번"** 호출되므로, 한 번만 있을 행위에 대한 코드는 이 메소드 안에 정의해줘야 한다.
  
-### viewWillAppear()
+### viewWillAppear(_:)
  
 뷰 컨트롤러의 화면 올라온 후, **뷰가 화면에 나타나기 직전에 컨트롤러에게 알리는 역할로 호출**된다.   
+`viewDidLoad()`와는 달리, **화면 전환을 통해 다른 뷰로 이동했다가 되돌아올 때 재호출**되므로 화면이 나타날 때마다 수행해야하는 작업을 정의하기에 좋다.   
+
+ 
+### viewDidAppear(_:)
+ 
+view가 데이터와 함께 완전히 화면에 나타난 후 호출된다.   
+ 
+### viewWillDisappear(_:)
+ 
+다음 뷰 컨트롤러로 전환되기 전이나 뷰 컨트롤러가 사라지기 직전에 호출된다.   
+ 
+### viewDidDisappear(_:)
+ 
+**뷰 컨트롤러가 화면에서 사라지고 나서 호출**되므로, 화면이 사라지고 나서 필요없어지거나 멈춰야하는 작업들을 이 메소드에 정의하면 된다.   
+ 
+***
+ 
+### didReceiveMemoryWarning()
+ 
+시스템 메모리가 
  
 #### Reference)
+ 
+[https://jcsoohwancho.github.io/2019-09-21-iOS-%EB%B7%B0%EC%BB%A8%ED%8A%B8%EB%A1%A4%EB%9F%AC%EC%9D%98-%EC%83%9D%EB%AA%85%EC%A3%BC%EA%B8%B0/](https://jcsoohwancho.github.io/2019-09-21-iOS-%EB%B7%B0%EC%BB%A8%ED%8A%B8%EB%A1%A4%EB%9F%AC%EC%9D%98-%EC%83%9D%EB%AA%85%EC%A3%BC%EA%B8%B0/)
