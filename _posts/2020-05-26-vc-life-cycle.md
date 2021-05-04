@@ -11,9 +11,11 @@ tags:
 ## ViewController 생명주기
  
 앱을 구셩하는 모든 ViewController들은 각각 생명주기를 갖고 있는데, **ViewController가 화면에 보였다가 사라지는 주기**를 생명주기라고 한다.   
- 
+    
+    
 <p style="text-align:center"><img width="510" alt="KakaoTalk_Photo_2021-05-04-19-16-53" src="https://user-images.githubusercontent.com/50580583/116989888-53615580-ad0d-11eb-8d6a-c4504fbdc33f.png"></p>
- 
+    
+    
 ### loadView()
  
 **화면에 띄워줄 view를 만드는 메소드**로, view를 만들고 메모리에 올린다.   
@@ -29,7 +31,8 @@ tags:
  
 뷰 컨트롤러의 화면 올라온 후, **뷰가 화면에 나타나기 직전에 컨트롤러에게 알리는 역할로 호출**된다.   
 `viewDidLoad()`와는 달리, **화면 전환을 통해 다른 뷰로 이동했다가 되돌아올 때 재호출**되므로 화면이 나타날 때마다 수행해야하는 작업을 정의하기에 좋다.   
-
+ 
+<p style="text-align:center"><img width="590" alt="KakaoTalk_Photo_2021-05-04-19-21-09" src="https://user-images.githubusercontent.com/50580583/116992206-a5f04100-ad10-11eb-98f4-5c77cc687621.png"></p>
  
 ### viewDidAppear(_:)
  
