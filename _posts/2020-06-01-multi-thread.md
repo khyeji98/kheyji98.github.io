@@ -50,3 +50,5 @@ Muti-Threading이란 **여러 개의 스레드(thread)가 동시에 진행되는
 5. Class, Struct
  
 #### Reference)
+ 
+[https://gwangyonglee.tistory.com/47](https://gwangyonglee.tistory.com/47)
