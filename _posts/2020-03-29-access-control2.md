@@ -14,5 +14,5 @@ tags:
  
 #### Reference)
  
-[https://iostree.wordpress.com/2020/04/18/privateset-getters-and-setters/](https://iostree.wordpress.com/2020/04/18/privateset-getters-and-setters/)
+[https://iostree.wordpress.com/2020/04/18/privateset-getters-and-setters/](https://iostree.wordpress.com/2020/04/18/privateset-getters-and-setters/)   
 [https://zeddios.tistory.com/389](https://zeddios.tistory.com/389)
