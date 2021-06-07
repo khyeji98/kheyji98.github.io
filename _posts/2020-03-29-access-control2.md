@@ -2,7 +2,7 @@
 comments: true
 title: Swift) 접근제어(Access Control) - 심화 ver.
 key: 202003292
-modify_date: 2020-03-29
+modify_date: 2021-06-07
 picture_frame: shadow
 tags:
   - [swift]
