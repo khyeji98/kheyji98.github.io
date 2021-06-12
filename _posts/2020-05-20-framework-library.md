@@ -1,7 +1,7 @@
 ---
 comments: true
 title: iOS ) 라이브러리(Library) VS 프레임워크(Framework)
-key: 202005201
+key: 202005202
 modify_date: 2020-12-09
 picture_frame: shadow
 tags:
