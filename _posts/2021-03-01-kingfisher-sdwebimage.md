@@ -27,9 +27,6 @@ tags:
 ## Kingfisher
  
 앞선 설명처럼 iOS에선 이미지 캐싱을 할 때 보통 NSCache와 FileManager 클래스를 사용하는데, Kingfisher는 두 클래스를 이용해서 좀 더 쉽게 이미지를 캐싱할 수 있도록 만들어진 라이브러리이다.   
-
- 
-### Kingfisher 기능
  
 - 비동기 이미지 다운로드 및 캐싱
 - URLSession 기반 네트워킹
@@ -37,11 +34,11 @@ tags:
 - GIF 이미지 지원
 - 유용한 이미지 프로세서 & 필터 기능 제공
 - UIImageView, UIButton에 대한 Extension 기능 제공
-- SwiftUI도 제공
+- SwiftUI 지원
  
 ```
-if let url = URL(string: self.imgUrl) {
-    self.imgView.kf.setImage(with: url)
+if let url = URL(string: imgUrl) {
+    imgView.kf.setImage(with: url)
 }
 ```
 보통 Kingfisher로 이미지 캐싱을 구현할 때 이런 코드 형태인데,   
@@ -67,7 +64,26 @@ collectionView나 tableView의 `didEndDisplaying`을 감지하는 함수에서 `
  
 ## SDWebImage
  
-
+- UIImageView, UIButton, MKAnnotationView에 웹 이미지 캐싱 관리
+- 비동기 이미지 다운로드 캐싱
+- 자동 캐시 만료 처리를 통한 비동기 메모리 및 디스크
+- 점진적 이미지로드
+- 썸네일 이미 인코딩
+- 확장 가능한 이미지 코더
+- 다운로드 직후 이미지에 커스텀 변형 적용 가능
+- 사용자 지정 가능한 다중 로더 시스템
+- 이미지 로딩 인디케이터
+- 이미지 로딩 전환 애니메이션
+- 동일한 url이 여러번 다운로드되지 않도록 보장
+- 올바르지 않은 url에 반복 접근하지 않도록 보장
+- 메인 스레드 차단되지 않음을 보장
+- SwiftUI 
+ 
+```
+if let url = URL(string: imgUrl) {
+    imgview.sd_setImage(with: url), placeholderImage: UIImage(named: "defaultImg"))
+}
+```
  
 ## Kingfisher와 SDWebImage
  
@@ -86,11 +102,11 @@ SDWebImage를 사용하다가 Kingfisher가 나오면서 많은 개발자들이 
   - (중간 해상도부터) `Kingfisher`의 메모리 사용량 증가, CPU 튐/버벅임 현상 발생   
 - **리사이즈 포함**   
   - (중간 해상도부터) `SDWebImage`의 메모리 사용량과 캐싱 타임 상승, 메모리와 CPU 튐 현상 발생   
- 
+    
  
 물론 Kingfisher의 "backBtn으로 인한 버벅임 현상"은 `KingfisherManager.shared.downloader.cnacelAll()`을 통해 메모리 사용량을 줄일 수 있다. *이 부분은 향후 테스트를 통해 한번 확인할 예정이다.*   
  
 #### Reference)
  
 [https://gist.github.com/linearhw/a0677b967b741abf9b8a903c37d3bcc9](https://gist.github.com/linearhw/a0677b967b741abf9b8a903c37d3bcc9)   
-[https://duwjdtn11.tistory.com/594](https://duwjdtn11.tistory.com/594)
+[https://duwjdtn11.tistory.com/594](https://duwjdtn11.tistory.com/594)   
