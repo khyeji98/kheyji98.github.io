@@ -1,6 +1,6 @@
 ---
 comments: true
-title: Swift) XㅣPagerTabStrip 라이브러리로 커스텀 탭 구현하기
+title: Swift) XLPagerTabStrip 라이브러리로 커스텀 탭 구현하기
 key: 202106051
 modify_date: 2021-06-06
 picture_frame: shadow
