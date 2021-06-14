@@ -29,9 +29,9 @@ class MainVC : ButtonBarPagerTabStripViewController { }
 class Child1VC: UIViewController, IndicatorInfoProvider { }
 ```
  
+<p style="text-align:center"><img width="256" alt="KakaoTalk_Photo_2021-06-06-20-46-56" src="https://user-images.githubusercontent.com/50580583/121861486-d32f0680-cd34-11eb-910c-761aa4fa3cae.png"></p>   
+ 
 스토리보드에서 MainVC에 TabBar로 CollectionView를 추가하고, `ButtonBarView`를 상속시킨다.   
-
-
  
 #### Reference)
  
