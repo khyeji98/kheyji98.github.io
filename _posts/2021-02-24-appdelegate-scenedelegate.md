@@ -11,6 +11,8 @@ tags:
  
 ## AppDelegate
  
+AppDelegate에서는 크게 두가지 기능이 있다.   
+ 
 
  
 ## SceneDelegate
