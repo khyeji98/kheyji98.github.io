@@ -8,14 +8,6 @@ key: page-about
     안녕하세요 iOS 개발자 김혜지입니다.
    
     <br>
-
-    이 블로그는
-    
-    <br>
-    
-    제가 공부한 것을 기록하는 곳입니다.
-    
-    <br>
     
     <a style="margin-top:5px;" class="button button--outline-primary button--rounded button--sm" target="_blank" rel="noopener noreferrer" href="/여기에 포트폴리오 추가/"><i class="fas fa-baby"></i>Resume 보기</a>
 </div>
