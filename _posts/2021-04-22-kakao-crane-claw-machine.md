@@ -20,8 +20,6 @@ tags:
 ### 코드
  
 ```
-import Foundation
- 
 func solution(_ board:[[Int]], _ moves:[Int]) -> Int {
     var newBoard = board
     var basket = [Int]()
