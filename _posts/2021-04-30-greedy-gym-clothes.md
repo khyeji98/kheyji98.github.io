@@ -16,8 +16,6 @@ tags:
 ## 코드
  
 ```
-import Foundation
- 
 func solution(_ n:Int, _ lost:[Int], _ reserve:[Int]) -> Int {
  
     var newReserve = reserve.filter{!lost.contains($0)}
