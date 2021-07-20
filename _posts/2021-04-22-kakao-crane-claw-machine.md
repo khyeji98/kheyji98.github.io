@@ -5,7 +5,7 @@ key: 202104221
 modify_date: 2021-04-22
 picture_frame: shadow
 tags:
-  - [코딩테스트]
+  - [Algorithm]
 ---
  
 ## [2019 카카오 개발자 겨울 인턴십] 크레인 인형뽑기 게임
