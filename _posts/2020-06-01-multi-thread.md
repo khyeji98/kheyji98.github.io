@@ -53,7 +53,7 @@ Muti-Threading이란 **여러 개의 스레드(thread)가 동시에 진행되는
 Swift에서 thread 관련 작업은 **G**rand **C**entral **D**ispatch API를 통해 처리한다.   
 **GCD**란, 클로저 내의 특정 작업을 큐에 올리고 해당 큐를 특정 시점에 실행하는 방식이다.   
  
-5. Class보단, **Struct**
+5. **Struct**
  
 Class는 참조 타입이지만, **Struct**는 값 타입이기 때문에 구조체가 파라미터로 전달될 때 Thread-Safe하다.
  
