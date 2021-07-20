@@ -52,7 +52,7 @@ func solution(_ numbers:[Int], _ hand:String) -> String {
 }
 ```
  
-- *은 10, 0은 11, #은 12로 가정하고, 풀이.   
+- ** * = 10, 0 = 11, # = 12 ** 가정하고, 풀이.   
  
 #### Reference)
  
