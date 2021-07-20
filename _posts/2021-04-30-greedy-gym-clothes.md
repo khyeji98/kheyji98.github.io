@@ -5,7 +5,7 @@ key: 202104301
 modify_date: 2021-04-30
 picture_frame: shadow
 tags:
-  - [코딩테스트]
+  - [Algorithm]
 ---
  
 ## 문제설명
